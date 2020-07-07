@@ -1,4 +1,4 @@
-const todoList = (function TodoList() {
+const todoList = (function() {
     const todos = [];
     function add(todo) {
         todos.push(todo);
