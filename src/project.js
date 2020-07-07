@@ -1,35 +1,48 @@
 const projectList = (function() {
     const projects = [];
-    function add(project) {
-        projects.push(project);
+    function add(project_) {
+        projects.push(project_);
     }
 
-    function remove(project) {
-        let index = projects.findIndex(project_ => project_.title === project.title);
-        let tasks =
+    function remove(project_) {
+        let index = projects.findIndex(project => project.title === project_.title);
+        // let tasks = projects;
         projects.splice(index, 1);
+    }
+
+    function getProject(project_) {
+        projects.find(project => project.name === project_.getName());
     }
 
     function getList() {
         return projects;
     }
 
-    return {add, remove, getList};
+    return {add, remove, getProject, getList};
 })();
 
-const Project = function (name, tasks=[]) {
-    let name_ = name;
+const Project = function (name_, tasks_=[]) {
+    let name = name_;
     
-    const taks_ = tasks;
+    const tasks = tasks_;
     
-    function edit(name) {
-        name_ = name;
+    function edit(name_) {
+        name = name_;
+    }
+
+    function getName() {
+        return name;
+    }
+
+    function getTasks() {
+        return tasks;
     }
 
     function getProject() {
-        return {name_, taks_}
+        return {name, tasks};
     }
-    return {edit};
+
+    return {edit, getName, getTasks, getProject};
 };
 
 export {projectList, Project};
