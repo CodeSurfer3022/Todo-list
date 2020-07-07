@@ -27,10 +27,17 @@ console.log(todoList.getTodo('todo2'));
 
 console.log('output for mark');
 todo1.markAsCompleted();
-todoList.remove(todo1);
+// todoList.remove(todo1);
 
 subtask.markAsCompleted();
 todo1.markAsCompleted();
 console.log(todo1.getTodo());
 let subtasks = todo1.getTodo().checkList;
 console.log(subtasks[0].getTodo());
+
+console.log('trying to remove project from projectList');
+console.log(projectList.getList());
+console.log(todoList.getList());
+projectList.remove('Home');
+console.log(todoList.getList());
+console.log(projectList.getList());

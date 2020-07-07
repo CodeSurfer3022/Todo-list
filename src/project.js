@@ -1,3 +1,5 @@
+import {todoList} from './todo';
+
 const projectList = (function() {
     const projects = [];
     function add(project) {
@@ -5,13 +7,20 @@ const projectList = (function() {
     }
 
     function remove(name) {
+        // This project should be removed from the projectList
         let index = projects.findIndex(project => project.getName() === name);
-        // let tasks = projects;
+
+        // But first, all the todos under this project should be removed from the todoList
+        let currentProject = projects[index];
+        let todos = currentProject.getTodos();
+        todos.forEach(todo => todoList.remove(todo.getTitle()));
+
+        // Now remove the project
         projects.splice(index, 1);
     }
 
     function getProject(name) {
-        projects.find(project => project.getName() === name);
+        return projects.find(project => project.getName() === name);
     }
 
     function getList() {
@@ -21,10 +30,10 @@ const projectList = (function() {
     return {add, remove, getProject, getList};
 })();
 
-const Project = function (name_, todos_=[]) {
+const Project = function (name_) {
     let name = name_;
     
-    const todos = todos_;
+    const todos = [];
     
     function edit(name_) {
         name = name_;
@@ -42,6 +51,7 @@ const Project = function (name_, todos_=[]) {
         return todos;
     }
 
+    // only use this for quick debugging
     function getProject() {
         return {name, todos};
     }
