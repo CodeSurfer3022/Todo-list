@@ -62,8 +62,8 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
         dueDate = dueDate_;
     }
 
-    function addChecklist(checkList_) {
-        checkList = checkList_;
+    function addToChecklist(todo) {
+        checkList.push(todo);
     }
 
     function markAsCompleted() {
@@ -107,7 +107,7 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
         return {title, notes, dueDate, projectName, checkList, completed};
     }
 
-    return {edit, moveToProject, reschedule, addChecklist, markAsCompleted,
+    return {edit, moveToProject, reschedule, addToChecklist, markAsCompleted,
         getTitle, getNotes, getDueDate, getProjectName, getCheckList, isCompleted, getTodo};
 }
 
