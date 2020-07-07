@@ -37,18 +37,25 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
         title = title_;
         notes = notes_;
         dueDate = dueDate_;
-        projectName = projectName_;
+        moveToProject(projectName_);
     }
 
     function moveToProject(projectName_) {
-        // Remove the task from the current project
-        let currentProject = projectList.getProject(projectName);
-        currentProject.getTodos().filter(task => task.getTitle() === title);
+        if(projectName === projectName_) return;
+        console.log(projectName);
+        // Remove the todo from the current project
 
-        // reassign projectName here and add task to new project
+        let currentProject = projectList.getProject(projectName);
+        console.log(currentProject.getTodos());
+        let index = currentProject.getTodos().findIndex(todo => todo.getTitle() === title);
+        console.log(index);
+        currentProject.getTodos().splice(index, 1);
+
+        // reassign projectName here and add todo to new project
         projectName = projectName_;
         let newProject = projectList.getProject(projectName);
-        newProject.getTodos().push()
+        newProject.getTodos().push(this);
+        console.log(newProject.getTodos());
     }
 
     function reschedule(dueDate_) {
@@ -62,14 +69,12 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
     function markAsCompleted() {
         // check if all subtasks are completed
         console.log(checkList);
-        let subtasks = checkList.map(subtask => todoList.getTodo(subtask));
-        console.log(subtasks);
-        let completed_ = subtasks.every(subtask => subtask.isCompleted);
+        let completed_ = checkList.every(todo => todo.isCompleted());
         if(completed_) {
             completed = true;
             console.log(`marked ${this} as completed`);
         } else {
-            console.log("please complete all subtasks before marking the task as complete");
+            console.log("please complete all todos in checklist before marking the todo as complete");
         }
     }
 
@@ -97,8 +102,13 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
         return completed;
     }
 
+    // only use this function for quick debugging
+    function getTodo() {
+        return {title, notes, dueDate, projectName, checkList, completed};
+    }
+
     return {edit, moveToProject, reschedule, addChecklist, markAsCompleted,
-        getTitle, getNotes, getDueDate, getProjectName, getCheckList, isCompleted};
+        getTitle, getNotes, getDueDate, getProjectName, getCheckList, isCompleted, getTodo};
 }
 
 export {todoList, Todo};
