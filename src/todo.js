@@ -2,6 +2,8 @@ const todoList = (function() {
     const todos = [];
     function add(todo_) {
         todos.push(todo_);
+        let project = todo_.getProject();
+
     }
 
     function remove(todo_) {
@@ -9,11 +11,15 @@ const todoList = (function() {
         todos.splice(index, 1);
     }
 
+    function getTodo(todo_) {
+        return todos.find(todo => todo.getTitle() === todo_.getTitle());
+    }
+
     function getList() {
         return todos;
     }
 
-    return {add, remove, getList};
+    return {add, remove, getTodo, getList};
 })();
 
 function Todo (title_, notes_, dueDate_, project_="Home") {
@@ -46,8 +52,10 @@ function Todo (title_, notes_, dueDate_, project_="Home") {
 
     function markAsCompleted() {
         // check if all subtasks are completed
-        let subtasks = checkList.map(subtask => subtask.getTodo());
-        let completed_ = subtasks.every(subtask => subtask.completed);
+        console.log(checkList);
+        let subtasks = checkList.map(subtask => todoList.getTodo(subtask));
+        console.log(subtasks);
+        let completed_ = subtasks.every(subtask => subtask.isCompleted);
         if(completed_) {
             completed = true;
             console.log(`marked ${this} as completed`);
@@ -56,11 +64,32 @@ function Todo (title_, notes_, dueDate_, project_="Home") {
         }
     }
 
-    function getTodo() {
-        return {title, notes, dueDate, project, checkList, completed};
+    function getTitle() {
+        return title;
     }
 
-    return {edit, moveToProject, reschedule, addChecklist, markAsCompleted,getTodo};
+    function getNotes() {
+        return notes;
+    }
+
+    function getDueDate() {
+        return dueDate;
+    }
+
+    function getProject() {
+        return project;
+    }
+
+    function getCheckList() {
+        return checkList;
+    }
+
+    function isCompleted() {
+        return completed;
+    }
+
+    return {edit, moveToProject, reschedule, addChecklist, markAsCompleted,
+        getTitle, getNotes, getDueDate, getProject, getCheckList, isCompleted};
 }
 
 export {todoList, Todo};
