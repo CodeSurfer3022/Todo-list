@@ -1,18 +1,18 @@
+import {projectList} from './project';
+
 const todoList = (function() {
     const todos = [];
-    function add(todo_) {
-        todos.push(todo_);
-        let project = todo_.getProject();
-
+    function add(todo) {
+        todos.push(todo);
     }
 
-    function remove(todo_) {
-        let index = todos.findIndex(todo => todo.title === todo_.title);
+    function remove(title) {
+        let index = todos.findIndex(todo => todo.getTitle() === title);
         todos.splice(index, 1);
     }
 
-    function getTodo(todo_) {
-        return todos.find(todo => todo.getTitle() === todo_.getTitle());
+    function getTodo(title) {
+        return todos.find(todo => todo.getTitle() === title);
     }
 
     function getList() {
@@ -22,24 +22,33 @@ const todoList = (function() {
     return {add, remove, getTodo, getList};
 })();
 
-function Todo (title_, notes_, dueDate_, project_="Home") {
+function Todo (title_, notes_, dueDate_, projectName_="Home") {
     let title = title_;
     let notes = notes_;
     let dueDate = dueDate_;
-    let project = project_;
+    let projectName = projectName_;
 
     let checkList = [];
     let completed = false;
 
-    function edit(title_, notes_, dueDate_, project_) {
+    // Add the current todo to project
+
+    function edit(title_, notes_, dueDate_, projectName_) {
         title = title_;
         notes = notes_;
         dueDate = dueDate_;
-        project = project_;
+        projectName = projectName_;
     }
 
-    function moveToProject(project_) {
-        project = project_;
+    function moveToProject(projectName_) {
+        // Remove the task from the current project
+        let currentProject = projectList.getProject(projectName);
+        currentProject.getTodos().filter(task => task.getTitle() === title);
+
+        // reassign projectName here and add task to new project
+        projectName = projectName_;
+        let newProject = projectList.getProject(projectName);
+        newProject.getTodos().push()
     }
 
     function reschedule(dueDate_) {
@@ -76,8 +85,8 @@ function Todo (title_, notes_, dueDate_, project_="Home") {
         return dueDate;
     }
 
-    function getProject() {
-        return project;
+    function getProjectName() {
+        return projectName;
     }
 
     function getCheckList() {
@@ -89,7 +98,7 @@ function Todo (title_, notes_, dueDate_, project_="Home") {
     }
 
     return {edit, moveToProject, reschedule, addChecklist, markAsCompleted,
-        getTitle, getNotes, getDueDate, getProject, getCheckList, isCompleted};
+        getTitle, getNotes, getDueDate, getProjectName, getCheckList, isCompleted};
 }
 
 export {todoList, Todo};

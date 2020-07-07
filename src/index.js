@@ -1,13 +1,19 @@
 import {todoList, Todo} from './todo';
+import {projectList, Project} from './project';
+
+let home = Project('Home');
+projectList.add(home);
 
 let todo1 = Todo('todo1', 'just checkin', 'today', 'Home');
 todoList.add(todo1);
 console.log(todo1);
 console.log(todoList.getList());
-todoList.getTodo(todo1);
+// todoList.getTodo(todo1);
+
+home.addTodo(todo1);
 
 todo1.edit('todo2', 'checkin edit', 'tomorrow', 'default');
-console.log(todoList.getTodo(todo1));
+// console.log(todoList.getTodo(todo1));
 
 todo1.moveToProject('home');
 todo1.reschedule('today');
@@ -17,7 +23,7 @@ let subtask = Todo('subtask1', 'do subtask', 'today', 'misc');
 todoList.add(subtask);
 subTaskList.push(subtask);
 todo1.addChecklist(subTaskList);
-console.log(todoList.getTodo(todo1));
+// console.log(todoList.getTodo(todo1));
 
 console.log('output for mark');
 todo1.markAsCompleted();
