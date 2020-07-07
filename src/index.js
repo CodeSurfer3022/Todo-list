@@ -20,3 +20,6 @@ console.log(todo1.getTodo());
 console.log('output for mark');
 todo1.markAsCompleted();
 todoList.remove(todo1);
+
+subTaskList.forEach(subtask => subtask.markAsCompleted());
+todo1.markAsCompleted();
