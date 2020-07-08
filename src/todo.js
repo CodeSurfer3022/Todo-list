@@ -22,13 +22,13 @@ const todoList = (function() {
     return {add, remove, getTodo, getList};
 })();
 
-function Todo (title_, notes_, dueDate_, priority_, projectName_="Home") {
+function Todo (title_, dueDate_, priority_, projectName_="Home") {
     let title = title_;
-    let notes = notes_;
     let dueDate = dueDate_;
     let priority = priority_;
     let projectName = projectName_;
 
+    let notes;
     let checkList = [];
     let completed = false;
 
@@ -36,7 +36,6 @@ function Todo (title_, notes_, dueDate_, priority_, projectName_="Home") {
 
     function edit(title_, notes_, dueDate_, priority_, projectName_) {
         title = title_;
-        notes = notes_;
         dueDate = dueDate_;
         priority = priority_;
         moveToProject(projectName_);
@@ -58,6 +57,10 @@ function Todo (title_, notes_, dueDate_, priority_, projectName_="Home") {
         let newProject = projectList.getProject(projectName);
         newProject.getTodos().push(this);
         console.log(newProject.getTodos());
+    }
+
+    function addNotes(notes_) {
+        notes = notes_;
     }
 
     function reschedule(dueDate_) {
@@ -116,7 +119,7 @@ function Todo (title_, notes_, dueDate_, priority_, projectName_="Home") {
         return {title, notes, dueDate, priority, projectName, checkList, completed};
     }
 
-    return {edit, moveToProject, reschedule, setPriority, addToChecklist, markAsCompleted,
+    return {edit, moveToProject, addNotes, reschedule, setPriority, addToChecklist, markAsCompleted,
         getTitle, getNotes, getDueDate, getPriority, getProjectName, getCheckList,
         isCompleted, getTodo};
 }

@@ -6,7 +6,7 @@ let home = Project('Home');
 projectList.add(home);
 
 // Create a To do and add it to the todoList
-let todo1 = Todo('todo1', 'just checkin', 'today', 'Home');
+let todo1 = Todo('todo1', 'just checkin', 'today', 'high', 'Home');
 todoList.add(todo1);
 console.log(todo1);
 console.log(todoList.getList());
@@ -16,7 +16,7 @@ console.log(todoList.getTodo('todo1'));
 home.addTodo(todo1);
 
 // Operations on a to do
-todo1.edit('todo2', 'checkin edit', 'tomorrow', 'Home');
+todo1.edit('todo2', 'checkin edit', 'tomorrow', 'high', 'Home');
 console.log(todoList.getTodo('todo2'));
 console.log(home.getTodos());
 
