@@ -6,4 +6,36 @@ html {
 body {
     height: 100%;
     width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 8fr 1fr;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+#projects {
+    background-color: floralwhite;
+}
+
+#projects-heading{
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+p[data-button="add"] {
+    transform: rotate(-90deg);
+}
+
+#todos {
+
+}
+
+header, footer {
+    background-color: #158dc4;
+    font-family: Helvetica, serif;
+    color: white;
+    text-align: center;
 }
