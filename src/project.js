@@ -52,6 +52,10 @@ const Project = function (name_) {
         return name;
     }
 
+    function getNotes() {
+        return notes;
+    }
+
     function getTodos() {
         return todos;
     }
@@ -61,7 +65,7 @@ const Project = function (name_) {
         return {name, todos};
     }
 
-    return {edit, addNotes, addTodo, getName, getTodos, getProject};
+    return {edit, addNotes, addTodo, getName, getNotes, getTodos, getProject};
 };
 
 export {projectList, Project};

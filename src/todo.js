@@ -76,7 +76,7 @@ function Todo (title_, dueDate_, priority_, projectName_="Home") {
     }
 
     function markAsCompleted() {
-        // check if all subtasks are completed
+        // check if all todos in checklist are completed
         console.log(checkList);
         let completed_ = checkList.every(todo => todo.isCompleted());
         if(completed_) {
