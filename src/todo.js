@@ -22,10 +22,11 @@ const todoList = (function() {
     return {add, remove, getTodo, getList};
 })();
 
-function Todo (title_, notes_, dueDate_, projectName_="Home") {
+function Todo (title_, notes_, dueDate_, priority_, projectName_="Home") {
     let title = title_;
     let notes = notes_;
     let dueDate = dueDate_;
+    let priority = priority_;
     let projectName = projectName_;
 
     let checkList = [];
@@ -33,10 +34,11 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
 
     // Add the current todo to project
 
-    function edit(title_, notes_, dueDate_, projectName_) {
+    function edit(title_, notes_, dueDate_, priority_, projectName_) {
         title = title_;
         notes = notes_;
         dueDate = dueDate_;
+        priority = priority_;
         moveToProject(projectName_);
     }
 
@@ -60,6 +62,10 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
 
     function reschedule(dueDate_) {
         dueDate = dueDate_;
+    }
+
+    function setPriority(priority_) {
+        priority = priority_;
     }
 
     function addToChecklist(todo) {
@@ -90,6 +96,9 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
         return dueDate;
     }
 
+    function getPriority() {
+        return priority;
+    }
     function getProjectName() {
         return projectName;
     }
@@ -104,11 +113,12 @@ function Todo (title_, notes_, dueDate_, projectName_="Home") {
 
     // only use this function for quick debugging
     function getTodo() {
-        return {title, notes, dueDate, projectName, checkList, completed};
+        return {title, notes, dueDate, priority, projectName, checkList, completed};
     }
 
-    return {edit, moveToProject, reschedule, addToChecklist, markAsCompleted,
-        getTitle, getNotes, getDueDate, getProjectName, getCheckList, isCompleted, getTodo};
+    return {edit, moveToProject, reschedule, setPriority, addToChecklist, markAsCompleted,
+        getTitle, getNotes, getDueDate, getPriority, getProjectName, getCheckList,
+        isCompleted, getTodo};
 }
 
 export {todoList, Todo};
