@@ -32,11 +32,16 @@ const projectList = (function() {
 
 const Project = function (name_) {
     let name = name_;
-    
+
+    let notes;
     const todos = [];
     
     function edit(name_) {
         name = name_;
+    }
+
+    function addNotes(notes_) {
+        notes = notes_;
     }
 
     function addTodo(todo) {
@@ -56,7 +61,7 @@ const Project = function (name_) {
         return {name, todos};
     }
 
-    return {edit, addTodo, getName, getTodos, getProject};
+    return {edit, addNotes, addTodo, getName, getTodos, getProject};
 };
 
 export {projectList, Project};

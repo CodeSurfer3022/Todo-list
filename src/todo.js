@@ -34,7 +34,7 @@ function Todo (title_, dueDate_, priority_, projectName_="Home") {
 
     // Add the current todo to project
 
-    function edit(title_, notes_, dueDate_, priority_, projectName_) {
+    function edit(title_, dueDate_, priority_, projectName_) {
         title = title_;
         dueDate = dueDate_;
         priority = priority_;
