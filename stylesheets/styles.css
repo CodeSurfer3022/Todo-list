@@ -19,14 +19,21 @@ main {
     background-color: floralwhite;
 }
 
-#projects-heading{
-    display: flex;
-    justify-content: stretch;
-    align-items: stretch;
+#projects div:hover{
+    cursor: pointer;
 }
 
-p[data-button="add"] {
-    transform: rotate(-90deg);
+#projects-heading{
+    background-color: aquamarine;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+p[data-button="drop down"] {
+    transform: rotate(90deg);
 }
 
 #todos {
