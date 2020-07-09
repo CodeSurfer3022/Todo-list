@@ -17,12 +17,36 @@ function name(name_) {
     return name;
 }
 
+function dropdown() {
+    let dropdown = document.createElement('div');
+    dropdown.classList.add('dropdown');
+
+    // The dropdown has options and dropdown content
+    dropdown.appendChild(options())
+    dropdown.appendChild(dropdownContent());
+
+    return dropdown;
+}
+
 function options() {
     let options = document.createElement('p');
     options.classList.add('project-options');
     options.textContent = '...';
 
     return options;
+}
+
+function dropdownContent() {
+    let dropdownContent = document.createElement('div');
+    dropdownContent.classList.add('dropdown-content');
+    dropdownContent.id = 'myDropdown';
+
+    // The dropdown content has the project options
+    dropdownContent.appendChild(edit());
+    dropdownContent.appendChild(del());
+    dropdownContent.appendChild(notes());
+
+    return dropdownContent;
 }
 
 function edit() {
@@ -53,7 +77,6 @@ const projectRender = {
     render(project) {
         console.log('project is rendering');
         console.log(project);
-        console.log(projects);
 
         // each project is a div with 3 items: circle, name and dropdown
         let div = document.createElement('div');
@@ -61,31 +84,22 @@ const projectRender = {
 
         div.appendChild(circle());
         div.appendChild(name(project.getName()));
-        let dropdown = document.createElement('div');
-        dropdown.classList.add('dropdown');
-        div.appendChild(dropdown);
-
-        // The dropdown has options and dropdown content
-        dropdown.appendChild(options())
-        let dropdownContent = document.createElement('div');
-        dropdownContent.classList.add('dropdown-content');
-        dropdownContent.id = 'myDropdown';
-        dropdown.appendChild(dropdownContent);
-
-        // The dropdown content has the project options
-        dropdownContent.appendChild(edit());
-        dropdownContent.appendChild(del());
-        dropdownContent.appendChild(notes());
+        div.appendChild(dropdown());
 
         projects.appendChild(div);
     },
-
     selectProject(project) {
         console.log('todos of current project are rendering');
         todoRender.renderProjectHeading(project.getName());
         todoRender.renderAddTodo();
         let currentTodos = project.getTodos();
         currentTodos.forEach(todo => todoRender.render(todo));
+    },
+    renderOptions() {
+        console.log('ok');
+        const dropdownContent = projects.querySelector('#myDropdown');
+        console.log(dropdownContent);
+        dropdownContent.classList.toggle('show');
     }
 }
 
