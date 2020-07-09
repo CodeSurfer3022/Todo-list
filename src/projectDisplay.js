@@ -33,9 +33,9 @@ const projectRender = {
     selectProject(project) {
         console.log('todos of current project are rendering');
         todoRender.renderProjectHeading(project.getName());
+        todoRender.renderAddTodo();
         let currentTodos = project.getTodos();
         currentTodos.forEach(todo => todoRender.render(todo));
-        todoRender.renderAddTodo();
     }
 }
 

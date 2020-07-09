@@ -8,7 +8,24 @@ const todoRender = {
         heading.textContent = name;
         todos.appendChild(heading);
     },
+    renderAddTodo() {
+        const div = document.createElement('div');
+        div.classList.add('add-todo');
+
+        const plus = document.createElement('p');
+        plus.classList.add('todo-plus');
+        plus.textContent = '+';
+        div.appendChild(plus);
+
+        const p = document.createElement('p');
+        p.classList.add('todo-text');
+        p.textContent = 'Add todo';
+        div.appendChild(p);
+
+        todos.appendChild(div);
+    },
     render(todo) {
+        const addtodo = todos.querySelector('.add-todo');
         console.log('todo is rendering');
         console.log(todo);
         console.log(todos);
@@ -32,25 +49,8 @@ const todoRender = {
         options.textContent = '...';
         div.appendChild(options);
 
-        todos.appendChild(div);
-    },
-    renderAddTodo() {
-        const div = document.createElement('div');
-        div.classList.add('add-todo');
-
-        const plus = document.createElement('p');
-        plus.classList.add('todo-plus');
-        plus.textContent = '+';
-        div.appendChild(plus);
-
-        const p = document.createElement('p');
-        p.classList.add('todo-text');
-        p.textContent = 'Add todo';
-        div.appendChild(p);
-
-        todos.appendChild(div);
+        todos.insertBefore(div, addtodo);
     }
-
 }
 
 export {todoRender};
