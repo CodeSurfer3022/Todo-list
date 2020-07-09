@@ -1,14 +1,21 @@
 import {todoList, Todo} from './todo';
 import {projectList, Project} from './project';
+import {projectRender} from './projectDisplay';
 
 // Create a default project 'home'
 let home = Project('Home');
 home.addNotes('this is a default project');
-console.log(home.getNotes());
+// console.log(home.getNotes());
 projectList.add(home);
 
+// Render the default project
+projectRender.render(home);
+
+// select the default project
+projectRender.selectProject(home);
+
 // Create a To do and add it to the todoList
-let todo1 = Todo('todo1', 'today', 'high', 'Home');
+let todo1 = Todo('todo1', 'today', 'high');
 todo1.addNotes('this is notes');
 todo1.setPriority('low');
 todoList.add(todo1);
