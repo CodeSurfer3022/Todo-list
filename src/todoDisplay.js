@@ -1,14 +1,13 @@
 const todos = document.querySelector('#todos');
 
 const todoRender = {
-    addProjectHeading(name) {
+    renderProjectHeading(name) {
         console.log(name);
         const heading = document.createElement('h2');
         heading.classList.add('todo-heading');
         heading.textContent = name;
         todos.appendChild(heading);
     },
-
     render(todo) {
         console.log('todo is rendering');
         console.log(todo);
@@ -34,7 +33,24 @@ const todoRender = {
         div.appendChild(options);
 
         todos.appendChild(div);
+    },
+    renderAddTodo() {
+        const div = document.createElement('div');
+        div.classList.add('add-todo');
+
+        const plus = document.createElement('p');
+        plus.classList.add('todo-plus');
+        plus.textContent = '+';
+        div.appendChild(plus);
+
+        const p = document.createElement('p');
+        p.classList.add('todo-text');
+        p.textContent = 'Add todo';
+        div.appendChild(p);
+
+        todos.appendChild(div);
     }
+
 }
 
 export {todoRender};
