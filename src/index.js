@@ -12,7 +12,7 @@ projectList.add(home);
 projectRender.render(home);
 
 // select the default project
-projectRender.selectProject(home);
+// projectRender.selectProject(home);
 
 // Create a To do and add it to the todoList
 let todo1 = Todo('todo1', 'today', 'high');
@@ -25,6 +25,8 @@ console.log(todoList.getTodo('todo1'));
 
 // Add the To do to its respective project
 home.addTodo(todo1);
+
+projectRender.selectProject(home);
 
 // Operations on a to do
 todo1.edit('todo2', 'tomorrow', 'high', 'Home');

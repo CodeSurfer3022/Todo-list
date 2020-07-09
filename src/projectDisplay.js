@@ -1,3 +1,5 @@
+import {todoRender} from './todoDisplay';
+
 const projects = document.querySelector('#projects');
 
 const projectRender = {
@@ -21,7 +23,7 @@ const projectRender = {
         div.appendChild(name);
 
         let options = document.createElement('p');
-        options.classList.add('options');
+        options.classList.add('project-options');
         options.textContent = '...';
         div.appendChild(options);
 
@@ -30,8 +32,9 @@ const projectRender = {
 
     selectProject(project) {
         console.log('todos of current project are rendering');
+        todoRender.addProjectHeading(project.getName());
         let currentTodos = project.getTodos();
-        currentTodos.forEach(todo => console.log(todo));
+        currentTodos.forEach(todo => todoRender.render(todo));
     }
 }
 

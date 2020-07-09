@@ -47,6 +47,22 @@ p[data-button="drop down"] {
 
 }
 
+#todos div:hover {
+    cursor: pointer;
+}
+
+.todo {
+    background-color: lightsalmon;
+    height: 40px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.todo-heading {
+    font-size: xx-large;
+}
+
 header, footer {
     background-color: #158dc4;
     font-family: Helvetica, serif;
