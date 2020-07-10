@@ -53,7 +53,7 @@ const todoRender = {
         div.classList.add('todo');
 
         div.appendChild(circle());
-        div.appendChild(title());
+        div.appendChild(title(todo.getTitle()));
         div.appendChild(dropdown());
 
         todos.insertBefore(div, addtodo);

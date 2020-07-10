@@ -32,7 +32,7 @@ function Todo (title_, dueDate_, priority_, projectName_="Home") {
     let checkList = [];
     let completed = false;
 
-    // Add the current todo to project
+    // Add the current to do to project
 
     function edit(title_, dueDate_, priority_, projectName_) {
         title = title_;
