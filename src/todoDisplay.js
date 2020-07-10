@@ -1,4 +1,22 @@
+import dropdown from './todoDropdown';
+
 const todos = document.querySelector('#todos');
+
+function circle() {
+    let circle = document.createElement('p');
+    circle.classList.add('todo-circle');
+    circle.textContent = 'o';
+
+    return circle;
+}
+
+function title(title_) {
+    let title = document.createElement('h3');
+    title.classList.add('project-name');
+    title.textContent = title_;
+
+    return title;
+}
 
 const todoRender = {
     renderProjectHeading(name) {
@@ -34,22 +52,17 @@ const todoRender = {
         let div = document.createElement('div');
         div.classList.add('todo');
 
-        let circle = document.createElement('p');
-        circle.classList.add('todo-circle');
-        circle.textContent = 'o';
-        div.appendChild(circle);
-
-        let title = document.createElement('h3');
-        title.classList.add('todo-name');
-        title.textContent = todo.getTitle();
-        div.appendChild(title);
-
-        let options = document.createElement('p');
-        options.classList.add('todo-options');
-        options.textContent = '...';
-        div.appendChild(options);
+        div.appendChild(circle());
+        div.appendChild(title());
+        div.appendChild(dropdown());
 
         todos.insertBefore(div, addtodo);
+    },
+    renderDropdown() {
+        console.log('ok');
+        const dropdownContent = todos.querySelector('#myDropdown');
+        console.log(dropdownContent);
+        dropdownContent.classList.toggle('show');
     }
 }
 

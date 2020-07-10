@@ -1,5 +1,5 @@
-import {projectRender} from './projectDisplay';
-import {dropdownOptions} from './projectDropdownOptions';
+import {todoRender} from './todoDisplay';
+import {dropdownOptions} from './todoDropdownOptions';
 
 function dropdown() {
     let dropdown = document.createElement('div');
@@ -16,7 +16,7 @@ function dropbtn() {
     let dropbtn = document.createElement('p');
     dropbtn.classList.add('dropbtn');
     dropbtn.textContent = '...';
-    dropbtn.addEventListener('click', projectRender.renderDropdown);
+    dropbtn.addEventListener('click', todoRender.renderDropdown);
 
     return dropbtn;
 }
@@ -28,7 +28,6 @@ function dropdownContent() {
 
     // The dropdown content has the project options
     for(let option in dropdownOptions) {
-        console.log(dropdownOptions[option]);
         dropdownContent.appendChild(dropdownOptions[option]);
     }
 
