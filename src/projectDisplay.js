@@ -1,4 +1,5 @@
 import {todoRender} from './todoDisplay';
+import dropdown from './projectDropdown';
 const projects = document.querySelector('#projects');
 
 function circle() {
@@ -15,64 +16,6 @@ function name(name_) {
     name.textContent = name_;
 
     return name;
-}
-
-function dropdown() {
-    let dropdown = document.createElement('div');
-    dropdown.classList.add('dropdown');
-
-    // The dropdown has options and dropdown content
-    dropdown.appendChild(options())
-    dropdown.appendChild(dropdownContent());
-
-    return dropdown;
-}
-
-function options() {
-    let options = document.createElement('p');
-    options.classList.add('project-options');
-    options.classList.add('dropbtn');
-    options.textContent = '...';
-    options.addEventListener('click', projectRender.renderOptions);
-
-    return options;
-}
-
-function dropdownContent() {
-    let dropdownContent = document.createElement('div');
-    dropdownContent.classList.add('dropdown-content');
-    dropdownContent.id = 'myDropdown';
-
-    // The dropdown content has the project options
-    dropdownContent.appendChild(edit());
-    dropdownContent.appendChild(del());
-    dropdownContent.appendChild(notes());
-
-    return dropdownContent;
-}
-
-function edit() {
-    let edit = document.createElement('p');
-    edit.classList.add('edit-project');
-    edit.textContent = 'Edit Project';
-
-    return edit;
-}
-
-function del() {
-    let del = document.createElement('p');
-    del.classList.add('delete-project');
-    del.textContent = 'Delete Project';
-
-    return del;
-}
-
-function notes() {
-    let notes = document.createElement('p');
-    notes.classList.add('project-notes');
-    notes.textContent = 'Add notes';
-
-    return notes;
 }
 
 const projectRender = {
@@ -97,7 +40,7 @@ const projectRender = {
         let currentTodos = project.getTodos();
         currentTodos.forEach(todo => todoRender.render(todo));
     },
-    renderOptions() {
+    renderDropdown() {
         console.log('ok');
         const dropdownContent = projects.querySelector('#myDropdown');
         console.log(dropdownContent);
