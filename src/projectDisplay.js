@@ -31,6 +31,7 @@ function dropdown() {
 function options() {
     let options = document.createElement('p');
     options.classList.add('project-options');
+    options.classList.add('dropbtn');
     options.textContent = '...';
     options.addEventListener('click', projectRender.renderOptions);
 

@@ -1,6 +1,7 @@
 import {todoList, Todo} from './todo';
 import {projectList, Project} from './project';
 import {projectRender} from './projectDisplay';
+import addWindowListener from './windowEvents';
 
 // Create a default project 'home'
 let home = Project('Home');
@@ -61,3 +62,4 @@ console.log(todoList.getList());
 console.log(projectList.getList());
 
 home.edit('Bome');
+addWindowListener();
