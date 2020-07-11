@@ -1,6 +1,8 @@
 import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
 const projects = document.querySelector('#projects');
+const notesPopup = document.querySelector('.popup-container');
+const closePopup = document.querySelector('#close-popup');
 
 function circle() {
     let circle = document.createElement('p');
@@ -33,8 +35,15 @@ const projectRender = {
 
         projects.appendChild(div);
     },
+    renderNotesPopup() {
+        console.log(notesPopup);
+        notesPopup.classList.toggle('show');
+    },
+    hideNotesPopup() {
+        notesPopup.classList.toggle('show');
+    },
     removeProjectElement(projectElement) {
-        (projectElement.parentNode.removeChild(projectElement));
+        projectElement.parentNode.removeChild(projectElement);
     },
     updateProjectElement(projectElement, projectName) {
         console.log(projectElement);
@@ -58,5 +67,7 @@ const projectRender = {
         dropdownContent.classList.toggle('show');
     }
 }
+
+closePopup.addEventListener('click', projectRender.hideNotesPopup);
 
 export {projectRender};

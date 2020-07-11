@@ -27,17 +27,20 @@
             <p>More features being added</p>
             <p>Coming soon</p>
             <p>Calendar integration, filter, labels and more...</p>
-            <div class='popup-container'>
-                <div class='popup'>
-                    <form name="popup-form">
-                        <label for="notes">Notes</label>
-                        <textarea id="notes"></textarea>
-                        <br>
-                        <input type="button" value="Add notes">
-                    </form>
-                </div>
-            </div>
         </footer>
-    <script src="main.js"></script>
+        <div class='popup-container'>
+            <div class='popup'>
+                <div id="close-popup">
+                    <p>+</p>
+                </div>
+                <form name="popupForm">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes"></textarea>
+                    <br>
+                    <input type="button" value="Add notes">
+                </form>
+            </div>
+        </div>
+        <script src="main.js"></script>
     </body>
 </html>

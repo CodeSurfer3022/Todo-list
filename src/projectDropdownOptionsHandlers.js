@@ -8,7 +8,7 @@ function optionHandler() {
     const projectName = projectElement.querySelector('h3').textContent;
     let project = projectList.getProject(projectName);
 
-    console.log(projectElement);
+    // console.log(projectElement);
 
     switch (this.textContent) {
         case 'Edit Project':
@@ -32,7 +32,12 @@ function optionHandler() {
             console.log(projectList.getList());
             break;
         case 'Add notes':
-            console.log('add notes');
+            console.log('add Notes');
+            projectRender.renderNotesPopup();
+
+            const popup = document.querySelector('.popup');
+            const addNotes = popup.querySelector('input[type="button"]');
+            addNotes.addEventListener('click', saveForm.addNotes.bind(this, project));
     }
 }
 
