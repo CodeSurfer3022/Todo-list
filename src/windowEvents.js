@@ -3,7 +3,6 @@ function addWindowListener() {
 }
 
 function hideDropdowns(event) {
-    console.log(event.target);
     if(!event.target.matches('.dropbtn')) {
         let dropdowns = document.querySelectorAll('.dropdown-content');
         for(let dropdown of dropdowns) {

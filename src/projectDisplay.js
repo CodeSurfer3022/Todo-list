@@ -33,6 +33,17 @@ const projectRender = {
 
         projects.appendChild(div);
     },
+    removeProjectElement(projectElement) {
+        (projectElement.parentNode.removeChild(projectElement));
+    },
+    updateProjectElement(projectElement, projectName) {
+        console.log(projectElement);
+        projectElement.removeChild(projectElement.lastElementChild);
+
+        projectElement.appendChild(circle());
+        projectElement.appendChild(name(projectName));
+        projectElement.appendChild(dropdown());
+    },
     selectProject(project) {
         console.log('todos of current project are rendering');
         todoRender.renderProjectHeading(project.getName());

@@ -57,9 +57,9 @@ console.log(subtodos[0].getTodo());
 console.log('trying to remove project from projectList');
 console.log(projectList.getList());
 console.log(todoList.getList());
-projectList.remove('Home');
+// projectList.remove('Home');
 console.log(todoList.getList());
 console.log(projectList.getList());
 
-home.edit('Bome');
+// home.edit('Bome');
 addWindowListener();
