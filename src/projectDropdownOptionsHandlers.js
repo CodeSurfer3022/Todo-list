@@ -25,6 +25,12 @@ function optionHandler() {
             save.addEventListener('click', saveForm.update.bind(this, project, projectElement));
 
             break;
+        case 'Delete Project':
+            console.log('delete');
+            projectRender.removeProjectElement(projectElement);
+            projectList.remove(project.getName());
+            console.log(projectList.getList());
+            break;
         case 'Add notes':
             console.log('add notes');
     }
