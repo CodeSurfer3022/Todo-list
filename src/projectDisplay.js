@@ -1,6 +1,8 @@
 import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
 const projects = document.querySelector('#projects');
+const collapse = projects.querySelector('.collapsible');
+const content = projects.querySelector('.content');
 const notesPopup = document.querySelector('.popup-container');
 const closePopup = document.querySelector('#close-popup');
 
@@ -33,7 +35,11 @@ const projectRender = {
         div.appendChild(name(project.getName()));
         div.appendChild(dropdown());
 
-        projects.appendChild(div);
+        content.appendChild(div);
+    },
+    renderProjects() {
+        console.log();
+        content.classList.toggle('show');
     },
     renderNotesPopup() {
         console.log(notesPopup);
@@ -62,12 +68,12 @@ const projectRender = {
     },
     renderDropdown() {
         console.log('ok');
-        const dropdownContent = projects.querySelector('#myDropdown');
-        console.log(dropdownContent);
-        dropdownContent.classList.toggle('show');
+        const dropDownContent = this.parentNode.querySelector('.dropdown-content');
+        dropDownContent.classList.toggle('show');
     }
 }
 
 closePopup.addEventListener('click', projectRender.hideNotesPopup);
+collapse.addEventListener('click', projectRender.renderProjects);
 
 export {projectRender};
