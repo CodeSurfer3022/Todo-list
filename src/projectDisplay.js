@@ -38,8 +38,13 @@ const projectRender = {
         content.appendChild(div);
     },
     renderProjects() {
-        console.log();
-        content.classList.toggle('show');
+        let maxHeight = window.getComputedStyle(content).maxHeight;
+        if (maxHeight === '0px') {
+            console.log(maxHeight);
+            content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+            content.style.maxHeight = null;
+        }
     },
     renderNotesPopup() {
         console.log(notesPopup);
