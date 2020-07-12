@@ -38,6 +38,19 @@ main {
     transition: max-height 0.2s ease-out;
 }
 
+.collapsible:after {
+    content: '\25B8'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    /*color: white;*/
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\25B8"; /* Unicode character for "minus" sign (-) */
+    transform: rotate(90deg);
+}
+
 .project {
     background-color: lightcyan;
     height: 40px;

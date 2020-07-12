@@ -39,6 +39,7 @@ const projectRender = {
     },
     renderProjects() {
         let maxHeight = window.getComputedStyle(content).maxHeight;
+        this.classList.toggle("active");
         if (maxHeight === '0px') {
             console.log(maxHeight);
             content.style.maxHeight = content.scrollHeight + "px";
