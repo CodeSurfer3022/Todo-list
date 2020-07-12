@@ -27,7 +27,8 @@ console.log(todoList.getTodo('todo1'));
 // Add the To do to its respective project
 home.addTodo(todo1);
 
-projectRender.selectProject(home);
+const projectElement = document.querySelector('.project')
+projectRender.selectProject(projectElement, home);
 
 // Operations on a to do
 todo1.edit('todo2', 'tomorrow', 'high', 'Home');

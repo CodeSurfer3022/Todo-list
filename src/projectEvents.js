@@ -1,7 +1,12 @@
 import {projectRender} from './projectDisplay';
 import {projectList} from './project';
 
-
+const projectListeners = {
+    select(projectElement, project) {
+        console.log(projectElement, project);
+        projectElement.addEventListener('click', projectRender.selectProject.bind(this, projectElement, project));
+    }
+}
 const saveForm = {
     update (project, projectElement) {
         console.log(project, projectElement);
@@ -21,4 +26,4 @@ const saveForm = {
     }
 }
 
-export default saveForm;
+export  {projectListeners, saveForm};

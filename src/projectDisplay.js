@@ -1,5 +1,6 @@
 import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
+import {projectListeners} from './projectEvents';
 const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
@@ -30,6 +31,7 @@ const projectRender = {
         // each project is a div with 3 items: circle, name and dropdown
         let div = document.createElement('div');
         div.classList.add('project');
+        projectListeners.select(div, project);
 
         div.appendChild(circle());
         div.appendChild(name(project.getName()));
@@ -65,7 +67,9 @@ const projectRender = {
         projectElement.appendChild(name(projectName));
         projectElement.appendChild(dropdown());
     },
-    selectProject(project) {
+    selectProject(projectElement, project) {
+        if (projectElement.classList.contains('active-project')) return;
+        projectElement.classList.add('active-project');
         console.log('todos of current project are rendering');
         todoRender.renderProjectHeading(project.getName());
         todoRender.renderAddTodo();
