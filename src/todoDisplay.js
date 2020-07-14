@@ -58,6 +58,14 @@ const todoRender = {
 
         todos.insertBefore(div, addtodo);
     },
+    updateTodoElement(todoElement, title_) {
+        console.log(todoElement, title_);
+        todoElement.removeChild(todoElement.lastElementChild);
+
+        todoElement.appendChild(circle());
+        todoElement.appendChild(title(title_));
+        todoElement.appendChild(dropdown());
+    },
     renderDropdown() {
         console.log('ok');
         const dropdownContent = todos.querySelector('#myDropdown');

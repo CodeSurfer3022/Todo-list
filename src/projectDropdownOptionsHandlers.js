@@ -1,7 +1,7 @@
 import {projectRender} from './projectDisplay';
 import {projectList} from './project';
 import forms from './projectForms';
-import saveForm from './projectEvents';
+import {saveForm} from './projectEvents';
 
 function optionHandler() {
     const projectElement = this.parentNode.parentNode.parentNode;

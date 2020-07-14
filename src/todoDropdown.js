@@ -1,5 +1,6 @@
 import {todoRender} from './todoDisplay';
 import {dropdownOptions} from './todoDropdownOptions';
+import optionHandler from './todoDropdownOptionsHandler';
 
 function dropdown() {
     let dropdown = document.createElement('div');
@@ -28,9 +29,10 @@ function dropdownContent() {
 
     // The dropdown content has the project options
     for(let option in dropdownOptions) {
-        dropdownContent.appendChild(dropdownOptions[option]);
+        const optionElement = dropdownOptions[option];
+        dropdownContent.appendChild(optionElement);
+        optionElement.addEventListener('click', optionHandler);
     }
-
     return dropdownContent;
 }
 

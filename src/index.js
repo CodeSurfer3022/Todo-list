@@ -28,7 +28,6 @@ console.log(todoList.getTodo('todo1'));
 home.addTodo(todo1);
 
 const projectElement = document.querySelector('.project')
-projectRender.selectProject(projectElement, home);
 
 // Operations on a to do
 todo1.edit('todo2', 'tomorrow', 'high', 'Home');
@@ -47,6 +46,7 @@ console.log(todoList.getTodo('todo2'));
 console.log('output for mark');
 todo1.markAsCompleted();
 // todoList.remove(todo1);
+projectRender.selectProject(projectElement, home);
 
 todo2.markAsCompleted();
 todo1.markAsCompleted();
