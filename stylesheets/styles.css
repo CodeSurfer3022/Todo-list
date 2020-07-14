@@ -41,7 +41,6 @@ main {
 .collapsible:after {
     content: '\25B8'; /* Unicode character for "plus" sign (+) */
     font-size: 13px;
-    /*color: white;*/
     float: right;
     margin-left: 5px;
 }
@@ -99,7 +98,8 @@ main {
 
 .todo {
     background-color: lightsalmon;
-    height: 40px;
+    min-height: 40px;
+    max-height: 100px;
     display: flex;
     justify-content: space-around;
     align-items: center;
