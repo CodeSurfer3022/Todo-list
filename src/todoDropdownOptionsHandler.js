@@ -1,6 +1,7 @@
 import {todoList} from './todo';
 import forms from './todoForms';
 import {saveForm} from './todoEvents';
+import {todoRender} from './todoDisplay';
 
 function optionHandler() {
     const todoElement = this.parentNode.parentNode.parentNode;
@@ -34,7 +35,13 @@ function optionHandler() {
 
         case 'Add notes':
             console.log('add notes');
+            todoRender.renderNotesPopup();
+
+            const popup = document.querySelector('.popup');
+            const addNotes = popup.querySelector('input[type="button"]');
+            addNotes.addEventListener('click', saveForm.addNotes.bind(this, todo));
             break;
+
         case 'Move to project':
             console.log('move to project');
             break;

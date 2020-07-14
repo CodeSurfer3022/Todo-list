@@ -1,6 +1,8 @@
 import dropdown from './todoDropdown';
 
 const todos = document.querySelector('#todos');
+const notesPopup = document.querySelector('.popup-container');
+const closePopup = document.querySelector('#close-popup');
 
 function circle() {
     let circle = document.createElement('p');
@@ -65,6 +67,13 @@ const todoRender = {
         todoElement.appendChild(circle());
         todoElement.appendChild(title(title_));
         todoElement.appendChild(dropdown());
+    },
+    renderNotesPopup() {
+        console.log(notesPopup);
+        notesPopup.classList.toggle('show');
+    },
+    hideNotesPopup() {
+        notesPopup.classList.toggle('show');
     },
     renderDropdown() {
         console.log('ok');

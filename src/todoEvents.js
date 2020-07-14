@@ -22,14 +22,14 @@ const saveForm = {
         todoRender.updateTodoElement(todoElement, title);
 
     },
-    addNotes(project) {
+    addNotes(todo) {
         console.log('saving notes');
         const notes = document.popupForm.notes.value;
-        // console.log(notes);
-        project.addNotes(notes)
-        // todoRender.hideNotesPopup();
-        // let list = projectList.getList();
-        // list.forEach(project => console.log(project.getNotes()));
+        console.log(notes);
+        todo.addNotes(notes)
+        todoRender.hideNotesPopup();
+        let list = todoList.getList();
+        list.forEach(project => console.log(project.getNotes()));
     }
 }
 
