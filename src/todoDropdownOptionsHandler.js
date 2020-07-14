@@ -4,8 +4,8 @@ import {saveForm} from './todoEvents';
 
 function optionHandler() {
     const todoElement = this.parentNode.parentNode.parentNode;
-    const todoName = todoElement.querySelector('h3').textContent;
-    let todo = todoList.getTodo(todoName);
+    const todoTitle = todoElement.querySelector('h3').textContent;
+    let todo = todoList.getTodo(todoTitle);
 
     switch (this.textContent) {
         case 'Edit Todo':
@@ -25,7 +25,13 @@ function optionHandler() {
 
         case 'Delete Todo':
             console.log('delete');
+            console.log(todo);
+            todoList.remove(todoTitle);
+            console.log(todoList.getList());
+            todoElement.parentNode.removeChild(todoElement);
+
             break;
+
         case 'Add notes':
             console.log('add notes');
             break;
