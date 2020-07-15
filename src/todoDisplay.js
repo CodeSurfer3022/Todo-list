@@ -68,6 +68,9 @@ const todoRender = {
         todoElement.appendChild(title(title_));
         todoElement.appendChild(dropdown());
     },
+    removeTodoElement(todoElement) {
+        todoElement.parentNode.removeChild(todoElement);
+    },
     renderNotesPopup() {
         console.log(notesPopup);
         notesPopup.classList.toggle('show');

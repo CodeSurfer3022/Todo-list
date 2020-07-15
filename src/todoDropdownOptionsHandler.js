@@ -32,9 +32,8 @@ function optionHandler() {
             console.log('delete');
             console.log(todo);
             todoList.remove(todoTitle);
+            todoRender.removeTodoElement(todoElement);
             console.log(todoList.getList());
-            todoElement.parentNode.removeChild(todoElement);
-
             break;
 
         case 'Add notes':
@@ -58,7 +57,7 @@ function optionHandler() {
             dropdownContent.insertBefore(formDiv, this.nextElementSibling);
 
             const move = projectForm.querySelector('input[type="button"]');
-            move.addEventListener('click', saveForm.moveToProject.bind(this, todo, projectForm));
+            move.addEventListener('click', saveForm.moveToProject.bind(this, todo, todoElement, projectForm));
 
             break;
 

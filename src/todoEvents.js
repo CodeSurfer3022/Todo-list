@@ -25,9 +25,13 @@ const saveForm = {
         let list = todoList.getList();
         list.forEach(project => console.log(project.getNotes()));
     },
-    moveToProject(todo, form) {
+    moveToProject(todo, todoElement, form) {
         console.log('in move');
         const projectName = form.projectName.value;
+
+        if(projectName !== todo.getProjectName()) {
+            todoRender.removeTodoElement(todoElement);
+        }
         todo.moveToProject(projectName);
 
         const formDiv = form.parentNode;
