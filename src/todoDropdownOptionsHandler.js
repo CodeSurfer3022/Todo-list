@@ -3,6 +3,9 @@ import forms from './todoForms';
 import {saveForm} from './todoEvents';
 import {todoRender} from './todoDisplay';
 
+const formDiv = document.createElement('div');
+formDiv.classList.add('formDiv');
+
 function optionHandler() {
     const dropdownContent = this.parentNode;
     const todoElement = this.parentNode.parentNode.parentNode;
@@ -36,6 +39,7 @@ function optionHandler() {
 
         case 'Add notes':
             console.log('add notes');
+            todoRender.hideDropdowns();
             todoRender.renderNotesPopup();
 
             const popup = document.querySelector('.popup');
@@ -46,8 +50,6 @@ function optionHandler() {
         case 'Move to project':
             console.log('move to project');
 
-            const formDiv = document.createElement('div');
-            formDiv.classList.add('formDiv')
             const projectForm = forms.projectForm;
             formDiv.appendChild(projectForm);
 
@@ -55,8 +57,11 @@ function optionHandler() {
             console.log(dropdownContent);
             dropdownContent.insertBefore(formDiv, this.nextElementSibling);
 
-            // todo.moveToProject()
+            const move = projectForm.querySelector('input[type="button"]');
+            move.addEventListener('click', saveForm.moveToProject.bind(this, todo, projectForm));
+
             break;
+
         case 'Reschedule':
             console.log('reshedule');
             break;

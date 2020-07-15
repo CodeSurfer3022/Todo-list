@@ -1,12 +1,6 @@
 import {todoList} from './todo';
 import {todoRender} from './todoDisplay';
 
-// const projectListeners = {
-//     select(projectElement, project) {
-//         console.log(projectElement, project);
-//         projectElement.addEventListener('click', projectRender.selectProject.bind(this, projectElement, project));
-//     }
-// }
 const saveForm = {
     update (todo, todoElement) {
         console.log(todo, todoElement);
@@ -30,7 +24,23 @@ const saveForm = {
         todoRender.hideNotesPopup();
         let list = todoList.getList();
         list.forEach(project => console.log(project.getNotes()));
-    }
+    },
+    moveToProject(todo, form) {
+        console.log('in move');
+        const projectName = form.projectName.value;
+        todo.moveToProject(projectName);
+
+        const formDiv = form.parentNode;
+        formDiv.removeChild(form);
+
+        const dropdownContent = this.parentNode;
+        dropdownContent.removeChild(formDiv);
+
+        todoRender.hideDropdowns();
+
+        console.log(projectName);
+    },
+
 }
 
 export {saveForm};
