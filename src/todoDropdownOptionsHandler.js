@@ -4,6 +4,7 @@ import {saveForm} from './todoEvents';
 import {todoRender} from './todoDisplay';
 
 function optionHandler() {
+    const dropdownContent = this.parentNode;
     const todoElement = this.parentNode.parentNode.parentNode;
     const todoTitle = todoElement.querySelector('h3').textContent;
     let todo = todoList.getTodo(todoTitle);
@@ -44,9 +45,17 @@ function optionHandler() {
 
         case 'Move to project':
             console.log('move to project');
-            const projectForm = forms.projectForm;
 
-            todo.moveToProject()
+            const formDiv = document.createElement('div');
+            formDiv.classList.add('formDiv')
+            const projectForm = forms.projectForm;
+            formDiv.appendChild(projectForm);
+
+            console.log(projectForm);
+            console.log(dropdownContent);
+            dropdownContent.insertBefore(formDiv, this.nextElementSibling);
+
+            // todo.moveToProject()
             break;
         case 'Reschedule':
             console.log('reshedule');
