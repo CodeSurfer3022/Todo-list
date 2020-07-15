@@ -1,6 +1,7 @@
 import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
 import {projectListeners} from './projectEvents';
+
 const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');

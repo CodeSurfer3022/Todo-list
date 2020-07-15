@@ -12,9 +12,6 @@ projectList.add(home);
 // Render the default project
 projectRender.render(home);
 
-// select the default project
-// projectRender.selectProject(home);
-
 // Create a To do and add it to the todoList
 let todo1 = Todo('todo1', 'today', 'high');
 todo1.addNotes('this is notes');

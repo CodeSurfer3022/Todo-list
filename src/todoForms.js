@@ -53,10 +53,10 @@ const forms = {
         const br = document.createElement('br');
 
         formFields.priority(form);
-        form.appendChild(form);
+        form.appendChild(br);
 
         formFields.save(form);
-        form.appendChild(form);
+        form.appendChild(br);
 
         return form;
     })()
