@@ -44,6 +44,9 @@ function optionHandler() {
 
         case 'Move to project':
             console.log('move to project');
+            const projectForm = forms.projectForm;
+
+            todo.moveToProject()
             break;
         case 'Reschedule':
             console.log('reshedule');
@@ -56,6 +59,8 @@ function optionHandler() {
             break;
         case 'Mark as completed':
             console.log('mark as completed');
+            console.log(todo);
+            todo.markAsCompleted();
             break;
 
     }

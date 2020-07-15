@@ -41,7 +41,7 @@ const forms = {
 
         const prlabel = document.createElement('label');
         prlabel.setAttribute('for', 'projectName');
-        prlabel.textContent = 'Project';
+        prlabel.textContent = 'Project Name';
         form.appendChild(prlabel);
 
         const project = document.createElement('input');
@@ -58,6 +58,23 @@ const forms = {
 
         return form;
     })(),
+    projectForm : (() => {
+        const form = document.createElement('form');
+        form.name = 'todoProjectNameForm';
+
+        const prlabel = document.createElement('label');
+        prlabel.setAttribute('for', 'projectName');
+        prlabel.textContent = 'Project Name';
+        form.appendChild(prlabel);
+
+        const project = document.createElement('input');
+        project.type = 'text';
+        project.name = 'projectName';
+        project.id = 'projectName';
+        form.appendChild(project);
+
+        return form;
+    })()
 }
 
 export default forms;
