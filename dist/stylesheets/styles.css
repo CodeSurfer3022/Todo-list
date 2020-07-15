@@ -73,8 +73,9 @@ main {
 .dropdown-content {
     display: none;
     position: absolute;
+    right: 50px;
     background-color: #f1f1f1;
-    min-width: 160px;
+    min-width: 200px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -86,6 +87,14 @@ main {
     display: block;
 }
 
+.formDiv {
+    background-color: darkgray;
+    position: absolute;
+    /*top: 200px;*/
+    right: 10px;
+    min-width: 200px;
+    /*z-index: 2;*/
+}
 .dropdown-content p:hover {background-color: #ddd}
 
 #todos {
