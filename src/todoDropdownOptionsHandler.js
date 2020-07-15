@@ -64,7 +64,17 @@ function optionHandler() {
 
         case 'Reschedule':
             console.log('reshedule');
+
+            const duedateForm = forms.duedateForm;
+            formDiv.appendChild(duedateForm);
+
+            dropdownContent.insertBefore(formDiv, this.nextElementSibling);
+
+            const schedule = duedateForm.querySelector('input[type="button"]');
+            schedule.addEventListener('click', saveForm.reschedule.bind(this, todo, duedateForm));
+
             break;
+
         case 'Set priority':
             console.log('set priority');
             break;

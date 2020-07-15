@@ -40,6 +40,20 @@ const saveForm = {
 
         console.log(projectName);
     },
+    reschedule(todo, form) {
+        const dueDate = form.dueDate.value;
+        console.log(dueDate);
+        todo.reschedule(dueDate);
+
+        const formDiv = form.parentNode;
+        formDiv.removeChild(form);
+
+        const dropdownContent = this.parentNode;
+        dropdownContent.removeChild(formDiv);
+
+        todoRender.hideDropdowns();
+
+    }
 
 }
 
