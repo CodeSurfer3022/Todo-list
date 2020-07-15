@@ -77,7 +77,17 @@ function optionHandler() {
 
         case 'Set priority':
             console.log('set priority');
+
+            const priorityForm = forms.priorityForm;
+            formDiv.appendChild(priorityForm);
+
+            dropdownContent.insertBefore(formDiv, this.nextElementSibling);
+
+            const priority = priorityForm.querySelector('input[type="button"]');
+            priority.addEventListener('click', saveForm.prioritize.bind(this, todo, priorityForm));
+
             break;
+
         case 'Add to checklist':
             console.log('add to checklist');
             break;

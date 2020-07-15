@@ -53,6 +53,19 @@ const saveForm = {
 
         todoRender.hideDropdowns();
 
+    },
+    prioritize(todo, form) {
+        const priority = form.priority.value;
+        console.log(priority);
+        todo.reschedule(priority);
+
+        const formDiv = form.parentNode;
+        formDiv.removeChild(form);
+
+        const dropdownContent = this.parentNode;
+        dropdownContent.removeChild(formDiv);
+
+        todoRender.hideDropdowns();
     }
 
 }
