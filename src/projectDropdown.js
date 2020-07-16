@@ -25,6 +25,7 @@ function dropbtn() {
 function dropdownContent() {
     let dropdownContent = document.createElement('div');
     dropdownContent.classList.add('dropdown-content');
+    dropdownContent.id = 'projectDropdown';
 
     // The dropdown content has the project options
     for(let option in dropdownOptions) {

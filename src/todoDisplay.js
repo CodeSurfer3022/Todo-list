@@ -2,7 +2,7 @@ import dropdown from './todoDropdown';
 
 const todos = document.querySelector('#todos');
 const notesPopup = document.querySelector('.popup-container');
-const closePopup = document.querySelector('#close-popup');
+const closePopup = document.querySelector('.close-popup');
 
 function circle() {
     let circle = document.createElement('p');
@@ -80,7 +80,7 @@ const todoRender = {
     },
     renderDropdown() {
         console.log('ok');
-        const dropdownContent = todos.querySelector('#myDropdown');
+        const dropdownContent = todos.querySelector('#todoDropdown');
         console.log(dropdownContent);
         dropdownContent.classList.toggle('show');
     },

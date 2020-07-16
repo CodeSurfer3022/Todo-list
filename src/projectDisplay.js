@@ -6,7 +6,7 @@ const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
 const notesPopup = document.querySelector('.popup-container');
-const closePopup = document.querySelector('#close-popup');
+const closePopup = document.querySelector('.close-popup');
 
 function circle() {
     let circle = document.createElement('p');
