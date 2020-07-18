@@ -39,6 +39,10 @@ const projectRender = {
         div.appendChild(name(project.getName()));
         div.appendChild(dropdown());
 
+        const dropbtn = div.querySelector('.dropbtn');
+        dropbtn.addEventListener('click', projectRender.renderDropdown.bind(this, dropbtn.nextElementSibling));
+
+
         content.appendChild(div);
     },
     renderProjects() {
@@ -78,9 +82,7 @@ const projectRender = {
         let currentTodos = project.getTodos();
         currentTodos.forEach(todo => todoRender.render(todo));
     },
-    renderDropdown() {
-        console.log('ok');
-        const dropDownContent = this.parentNode.querySelector('.dropdown-content');
+    renderDropdown(dropDownContent) {
         dropDownContent.classList.toggle('show');
     }
 }

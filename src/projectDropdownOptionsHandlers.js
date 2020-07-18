@@ -7,8 +7,7 @@ function optionHandler() {
     const projectElement = this.parentNode.parentNode.parentNode;
     const projectName = projectElement.querySelector('h3').textContent;
     let project = projectList.getProject(projectName);
-
-    // console.log(projectElement);
+    const projectDropdown = document.querySelector('#projectDropdown');
 
     switch (this.textContent) {
         case 'Edit Project':

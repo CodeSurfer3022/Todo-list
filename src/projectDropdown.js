@@ -17,8 +17,6 @@ function dropbtn() {
     let dropbtn = document.createElement('p');
     dropbtn.classList.add('dropbtn');
     dropbtn.textContent = '...';
-    dropbtn.addEventListener('click', projectRender.renderDropdown);
-
     return dropbtn;
 }
 
