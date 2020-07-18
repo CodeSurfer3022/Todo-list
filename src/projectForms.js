@@ -1,7 +1,7 @@
 const forms = {
     editForm : (() => {
         const form = document.createElement('form');
-        form.name = 'editForm';
+        form.name = 'editProjectForm';
 
         const label = document.createElement('label');
         label.setAttribute('for', 'projectName');

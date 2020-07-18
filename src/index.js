@@ -2,6 +2,7 @@ import {todoList, Todo} from './todo';
 import {projectList, Project} from './project';
 import {projectRender} from './projectDisplay';
 import addTodo from './todos';
+import addProject from './projects';
 
 // Create a default project 'home'
 let home = Project('Home');
@@ -18,8 +19,11 @@ const projectElement = document.querySelector('.project')
 projectRender.selectProject(projectElement, home);
 
 // Click on add to do button to add a new to do
-const add = document.querySelector('.add-todo');
-add.addEventListener('click', addTodo);
+const addtodo = document.querySelector('.add-todo');
+addtodo.addEventListener('click', addTodo);
+
+const addproject = document.querySelector('.add-project');
+addproject.addEventListener('click', addProject);
 
 // Create a To do and add it to the todoList
 

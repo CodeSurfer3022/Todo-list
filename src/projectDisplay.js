@@ -19,6 +19,7 @@ function circle() {
 function name(name_) {
     let name = document.createElement('h3');
     name.classList.add('project-name');
+    console.log(name_)
     name.textContent = name_;
 
     return name;
@@ -63,7 +64,7 @@ const projectRender = {
     updateProjectElement(projectElement, projectName) {
         console.log(projectElement);
         projectElement.removeChild(projectElement.lastElementChild);
-
+        console.log(projectName);
         projectElement.appendChild(circle());
         projectElement.appendChild(name(projectName));
         projectElement.appendChild(dropdown());

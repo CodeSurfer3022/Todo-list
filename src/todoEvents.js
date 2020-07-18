@@ -15,8 +15,8 @@ const saveForm = {
         let todo = Todo(title, dueDate, priority, projectName);
         todoList.add(todo);
 
-        todoRender.render(todo);
         todos.removeChild(todoElement);
+        todoRender.render(todo);
         console.log(todoElement)
         console.log(todoList.getList())
 
