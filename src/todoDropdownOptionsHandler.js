@@ -89,7 +89,9 @@ function optionHandler() {
 
         case 'Add to checklist':
             console.log('add to checklist');
+
             break;
+
         case 'Mark as completed':
             console.log('mark as completed');
             console.log(todo);

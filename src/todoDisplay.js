@@ -1,8 +1,8 @@
 import dropdown from './todoDropdown';
 
 const todos = document.querySelector('#todos');
-const notesPopup = document.querySelector('.popup-container');
-const closePopup = document.querySelector('.close-popup');
+const notesPopup = document.querySelector('#notesPopupContainer');
+const closePopup = document.querySelector('#notesClosePopup');
 
 function circle() {
     let circle = document.createElement('p');

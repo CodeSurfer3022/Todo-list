@@ -5,8 +5,8 @@ import {projectListeners} from './projectEvents';
 const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
-const notesPopup = document.querySelector('.popup-container');
-const closePopup = document.querySelector('.close-popup');
+const notesPopup = document.querySelector('#notesPopupContainer');
+const closePopup = document.querySelector('#notesClosePopup');
 
 function circle() {
     let circle = document.createElement('p');

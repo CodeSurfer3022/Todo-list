@@ -1,10 +1,29 @@
-import {todoList} from './todo';
+import {Todo, todoList} from './todo';
 import {todoRender} from './todoDisplay';
 
+const todos = document.querySelector('#todos');
 const saveForm = {
+    add() {
+        console.log('add');
+        const todoElement = this.parentNode.parentNode;
+        const todoForm = document.todoEditForm;
+        const title = todoForm.title.value;
+        const dueDate = todoForm.dueDate.value;
+        const priority = todoForm.priority.value;
+        const projectName = todoForm.projectName.value;
+
+        let todo = Todo(title, dueDate, priority, projectName);
+        todoList.add(todo);
+
+        todoRender.render(todo);
+        todos.removeChild(todoElement);
+        console.log(todoElement)
+        console.log(todoList.getList())
+
+    },
     update (todo, todoElement) {
         console.log(todo, todoElement);
-        const todoForm = document.editTodoForm;
+        const todoForm = document.todoEditForm;
         const title = todoForm.title.value;
         const dueDate = todoForm.dueDate.value;
         const priority = todoForm.priority.value;
