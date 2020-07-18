@@ -38,6 +38,8 @@ function optionHandler() {
             const addNotes = popup.querySelector('input[type="button"]');
             addNotes.addEventListener('click', saveForm.addNotes.bind(this, project));
     }
+
+    projectRender.renderDropdown(projectDropdown);
 }
 
 export default optionHandler;
