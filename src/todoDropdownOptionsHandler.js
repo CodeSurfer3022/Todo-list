@@ -38,7 +38,7 @@ function optionHandler() {
 
         case 'Add notes':
             console.log('add notes');
-            todoRender.hideDropdowns();
+            todoRender.hideDropdown();
             todoRender.renderNotesPopup();
 
             const popup = document.querySelector('.popup');

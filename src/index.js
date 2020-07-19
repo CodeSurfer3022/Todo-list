@@ -3,6 +3,7 @@ import {projectList, Project} from './project';
 import {projectRender} from './projectDisplay';
 import addTodo from './todos';
 import addProject from './projects';
+import hideDropdowns from './windowEvents';
 
 // Create a default project 'home'
 let home = Project('Home');
@@ -38,6 +39,7 @@ addtodo.addEventListener('click', addTodo);
 const addproject = document.querySelector('.add-project');
 addproject.addEventListener('click', addProject);
 
+window.addEventListener('click', hideDropdowns);
 
 //
 //

@@ -39,7 +39,7 @@ function optionHandler() {
             addNotes.addEventListener('click', saveForm.addNotes.bind(this, project));
     }
 
-    projectRender.renderDropdown(projectDropdown);
+    projectRender.hideDropdown(projectDropdown);
 }
 
 export default optionHandler;

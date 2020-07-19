@@ -84,7 +84,7 @@ const todoRender = {
         console.log(dropdownContent);
         dropdownContent.classList.toggle('show');
     },
-    hideDropdowns() {
+    hideDropdown() {
         console.log('hide drop');
         let dropdown = document.querySelector('#todoDropdown');
         if(dropdown.classList.contains('show')) {

@@ -59,7 +59,7 @@ const saveForm = {
         const dropdownContent = this.parentNode;
         dropdownContent.removeChild(formDiv);
 
-        todoRender.hideDropdowns();
+        todoRender.hideDropdown();
 
         console.log(projectName);
     },
@@ -74,7 +74,7 @@ const saveForm = {
         const dropdownContent = this.parentNode;
         dropdownContent.removeChild(formDiv);
 
-        todoRender.hideDropdowns();
+        todoRender.hideDropdown();
 
     },
     prioritize(todo, form) {
@@ -88,7 +88,7 @@ const saveForm = {
         const dropdownContent = this.parentNode;
         dropdownContent.removeChild(formDiv);
 
-        todoRender.hideDropdowns();
+        todoRender.hideDropdown();
     }
 
 }
