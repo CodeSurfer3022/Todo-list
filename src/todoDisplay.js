@@ -86,11 +86,9 @@ const todoRender = {
     },
     hideDropdowns() {
         console.log('hide drop');
-        let dropdowns = document.querySelectorAll('.dropdown-content');
-        for(let dropdown of dropdowns) {
-            if(dropdown.classList.contains('show')) {
-                dropdown.classList.remove('show');
-            }
+        let dropdown = document.querySelector('#todoDropdown');
+        if(dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
         }
     },
 }

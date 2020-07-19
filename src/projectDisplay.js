@@ -84,6 +84,13 @@ const projectRender = {
     },
     renderDropdown(dropDownContent) {
         dropDownContent.classList.toggle('show');
+    },
+    hideDropdowns() {
+        console.log('hide drop');
+        let dropdown = document.querySelector('#projectDropdown');
+        if(dropdown.classList.contains('show')) {
+            dropdown.classList.remove('show');
+        }
     }
 }
 

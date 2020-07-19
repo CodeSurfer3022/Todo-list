@@ -10,6 +10,19 @@ home.addNotes('this is a default project');
 // console.log(home.getNotes());
 projectList.add(home);
 
+// Create a To do and add it to the todoList
+
+let todo1 = Todo('todo1', 'today', 'high');
+todo1.addNotes('this is notes');
+todo1.setPriority('low');
+todoList.add(todo1);
+console.log(todo1.getPriority());
+console.log(todoList.getList());
+console.log(todoList.getTodo('todo1'));
+
+// Add the To do to its respective project
+home.addTodo(todo1);
+
 // Render the default project
 projectRender.render(home);
 
@@ -25,18 +38,7 @@ addtodo.addEventListener('click', addTodo);
 const addproject = document.querySelector('.add-project');
 addproject.addEventListener('click', addProject);
 
-// Create a To do and add it to the todoList
 
-// let todo1 = Todo('todo1', 'today', 'high');
-// todo1.addNotes('this is notes');
-// todo1.setPriority('low');
-// todoList.add(todo1);
-// console.log(todo1.getPriority());
-// console.log(todoList.getList());
-// console.log(todoList.getTodo('todo1'));
-//
-// // Add the To do to its respective project
-// home.addTodo(todo1);
 //
 //
 // // Operations on a to do
