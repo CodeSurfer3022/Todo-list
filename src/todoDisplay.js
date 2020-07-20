@@ -47,6 +47,10 @@ const todoRender = {
         todos.appendChild(div);
     },
     render(todo, todos) {
+        const activeProject = document.querySelector('.active-project');
+        const projectName = activeProject.querySelector('.project-name').textContent;
+
+        if(projectName !== todo.getProjectName()) return;
         const addtodo = todos.querySelector('.add-todo');
         console.log('todo is rendering');
         console.log(todo);

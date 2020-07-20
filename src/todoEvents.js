@@ -14,6 +14,13 @@ const saveForm = {
         let todo = Todo(title, dueDate, priority, projectName);
         todoList.add(todo);
 
+        if(todos.matches('.checklist')) {
+            const currentTodoTitle = document.querySelector('#task-title').textContent;
+            const currentTodo = todoList.getTodo(currentTodoTitle);
+            console.log(currentTodo);
+            currentTodo.addToChecklist(todo);
+        }
+
         todos.removeChild(todoElement);
         todoRender.render(todo, todos);
         console.log(todoElement)
