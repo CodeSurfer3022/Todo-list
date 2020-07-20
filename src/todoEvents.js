@@ -1,5 +1,6 @@
 import {Todo, todoList} from './todo';
 import {todoRender} from './todoDisplay';
+import {projectList} from './project';
 
 const saveForm = {
     add(todos, todoElement) {
@@ -11,9 +12,11 @@ const saveForm = {
         const priority = todoForm.priority.value;
         const projectName = todoForm.projectName.value;
 
+        // Add to do to the list of todos
         let todo = Todo(title, dueDate, priority, projectName);
         todoList.add(todo);
 
+        // if the to do is a subtask, add it to the current to do's checklist
         if(todos.matches('.checklist')) {
             const currentTodoTitle = document.querySelector('#task-title').textContent;
             const currentTodo = todoList.getTodo(currentTodoTitle);
@@ -21,11 +24,15 @@ const saveForm = {
             currentTodo.addToChecklist(todo);
         }
 
+        // Add the to do to the list of todos of it's project
+        const project = projectList.getProject(projectName);
+        project.addTodo(todo);
+
         todos.removeChild(todoElement);
         todoRender.render(todo, todos);
         console.log(todoElement)
         console.log(todoList.getList())
-
+        console.log(project.getTodos())
     },
     update (todo, todoElement) {
         console.log(todo, todoElement);
