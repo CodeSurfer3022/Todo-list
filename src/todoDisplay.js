@@ -91,13 +91,14 @@ const todoRender = {
         checklistContainer.classList.remove('show');
     },
     renderDropdown() {
-        console.log('ok');
-        const dropdownContent = todos.querySelector('#todoDropdown');
+        console.log(this);
+        const dropdownContent = this.nextElementSibling;
         console.log(dropdownContent);
         dropdownContent.classList.toggle('show');
     },
     hideDropdown() {
-        console.log('hide drop');
+        console.log('in hide');
+        console.log(this);
         let dropdown = document.querySelector('#todoDropdown');
         if(dropdown.classList.contains('show')) {
             dropdown.classList.remove('show');

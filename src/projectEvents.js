@@ -22,8 +22,6 @@ const saveForm = {
 
         projectRender.updateProjectElement(projectElement, name);
         content.appendChild(projectElement);
-
-
     },
     update (project, projectElement) {
         console.log(project, projectElement);

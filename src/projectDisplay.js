@@ -40,10 +40,6 @@ const projectRender = {
         div.appendChild(name(project.getName()));
         div.appendChild(dropdown());
 
-        const dropbtn = div.querySelector('.dropbtn');
-        dropbtn.addEventListener('click', projectRender.renderDropdown.bind(this, dropbtn.nextElementSibling));
-
-
         content.appendChild(div);
     },
     renderProjects() {
@@ -83,12 +79,12 @@ const projectRender = {
         let currentTodos = project.getTodos();
         currentTodos.forEach(todo => todoRender.render(todo, todos));
     },
-    renderDropdown(dropDownContent) {
-        dropDownContent.classList.toggle('show');
+    renderDropdown() {
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('show');
     },
     hideDropdown() {
-        console.log('hide drop');
-        let dropdown = document.querySelector('#projectDropdown');
+        const dropdown = document.querySelector('#projectDropdown');
         if(dropdown.classList.contains('show')) {
             dropdown.classList.remove('show');
         }

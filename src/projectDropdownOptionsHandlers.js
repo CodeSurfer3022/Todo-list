@@ -7,7 +7,6 @@ function optionHandler() {
     const projectElement = this.parentNode.parentNode.parentNode;
     const projectName = projectElement.querySelector('h3').textContent;
     let project = projectList.getProject(projectName);
-    const projectDropdown = document.querySelector('#projectDropdown');
 
     switch (this.textContent) {
         case 'Edit Project':
@@ -39,7 +38,7 @@ function optionHandler() {
             addNotes.addEventListener('click', saveForm.addNotes.bind(this, project));
     }
 
-    projectRender.hideDropdown(projectDropdown);
+    projectRender.hideDropdown();
 }
 
 export default optionHandler;
