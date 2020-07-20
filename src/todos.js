@@ -1,10 +1,10 @@
 import forms from './todoForms';
 import {saveForm} from './todoEvents';
 
-const todos = document.querySelector('#todos');
 
-function addTodo() {
+function addTodo(todos) {
     console.log('add Todo');
+    console.log(todos);
 
     const todoElement = document.createElement('div');
     todoElement.classList.add('todo');
@@ -12,9 +12,9 @@ function addTodo() {
     todoElement.appendChild(editForm);
 
     const save = editForm.querySelector('input[type="button"]');
-    save.addEventListener('click', saveForm.add);
+    save.addEventListener('click', saveForm.add.bind(this, todos, todoElement));
 
-    todos.insertBefore(todoElement, this);
+    todos.insertBefore(todoElement, todos.lastElementChild);
 }
 
 export default addTodo;

@@ -33,8 +33,9 @@ const projectElement = document.querySelector('.project')
 projectRender.selectProject(projectElement, home);
 
 // Click on add to do button to add a new to do
+const todos = document.querySelector('#todos');
 const addtodo = document.querySelector('.add-todo');
-addtodo.addEventListener('click', addTodo);
+addtodo.addEventListener('click', addTodo.bind(this, todos));
 
 const addproject = document.querySelector('.add-project');
 addproject.addEventListener('click', addProject);

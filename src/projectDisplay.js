@@ -2,6 +2,7 @@ import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
 import {projectListeners} from './projectEvents';
 
+const todos = document.querySelector('#todos');
 const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
@@ -80,7 +81,7 @@ const projectRender = {
         todoRender.renderProjectHeading(project.getName());
         todoRender.renderAddTodo();
         let currentTodos = project.getTodos();
-        currentTodos.forEach(todo => todoRender.render(todo));
+        currentTodos.forEach(todo => todoRender.render(todo, todos));
     },
     renderDropdown(dropDownContent) {
         dropDownContent.classList.toggle('show');

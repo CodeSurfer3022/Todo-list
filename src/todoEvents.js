@@ -1,11 +1,10 @@
 import {Todo, todoList} from './todo';
 import {todoRender} from './todoDisplay';
 
-const todos = document.querySelector('#todos');
 const saveForm = {
-    add() {
+    add(todos, todoElement) {
         console.log('add');
-        const todoElement = this.parentNode.parentNode;
+        console.log(this, todos);
         const todoForm = document.todoEditForm;
         const title = todoForm.title.value;
         const dueDate = todoForm.dueDate.value;
@@ -16,7 +15,7 @@ const saveForm = {
         todoList.add(todo);
 
         todos.removeChild(todoElement);
-        todoRender.render(todo);
+        todoRender.render(todo, todos);
         console.log(todoElement)
         console.log(todoList.getList())
 

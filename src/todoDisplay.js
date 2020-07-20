@@ -1,8 +1,10 @@
 import dropdown from './todoDropdown';
+import {projectRender} from './projectDisplay';
 
 const todos = document.querySelector('#todos');
 const notesPopup = document.querySelector('#notesPopupContainer');
-const closePopup = document.querySelector('#notesClosePopup');
+const checklistContainer = document.querySelector('#checklistPopupContainer');
+const checklistClosePopup = document.querySelector('#checklistClosePopup');
 
 function circle() {
     let circle = document.createElement('p');
@@ -44,7 +46,7 @@ const todoRender = {
 
         todos.appendChild(div);
     },
-    render(todo) {
+    render(todo, todos) {
         const addtodo = todos.querySelector('.add-todo');
         console.log('todo is rendering');
         console.log(todo);
@@ -78,6 +80,12 @@ const todoRender = {
     hideNotesPopup() {
         notesPopup.classList.toggle('show');
     },
+    renderChecklistPopup() {
+        checklistContainer.classList.add('show');
+    },
+    hideChecklistPopup() {
+        checklistContainer.classList.remove('show');
+    },
     renderDropdown() {
         console.log('ok');
         const dropdownContent = todos.querySelector('#todoDropdown');
@@ -92,5 +100,7 @@ const todoRender = {
         }
     },
 }
+
+checklistClosePopup.addEventListener('click', todoRender.hideChecklistPopup);
 
 export {todoRender};

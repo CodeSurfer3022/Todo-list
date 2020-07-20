@@ -2,6 +2,7 @@ import {todoList} from './todo';
 import forms from './todoForms';
 import {saveForm} from './todoEvents';
 import {todoRender} from './todoDisplay';
+import checklistRender from './todoChecklist';
 
 const formDiv = document.createElement('div');
 formDiv.classList.add('formDiv');
@@ -89,7 +90,8 @@ function optionHandler() {
 
         case 'Add to checklist':
             console.log('add to checklist');
-
+            todoRender.renderChecklistPopup();
+            checklistRender.renderContainer(todo);
             break;
 
         case 'Mark as completed':
