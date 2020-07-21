@@ -29,7 +29,7 @@ function dropdownContent() {
 
     // The dropdown content has the project options
     for(let option in dropdownOptions) {
-        const optionElement = dropdownOptions[option];
+        const optionElement = dropdownOptions[option]();
         dropdownContent.appendChild(optionElement);
         optionElement.addEventListener('click', optionHandler);
     }
