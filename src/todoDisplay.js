@@ -6,6 +6,8 @@ const notesPopup = document.querySelector('#notesPopupContainer');
 const checklistContainer = document.querySelector('#checklistPopupContainer');
 const checklistClosePopup = document.querySelector('#checklistClosePopup');
 
+const todoDropdown = document.querySelector('#todoDropdown');
+
 function circle() {
     let circle = document.createElement('p');
     circle.classList.add('todo-circle');
@@ -91,17 +93,15 @@ const todoRender = {
         checklistContainer.classList.remove('show');
     },
     renderDropdown() {
-        console.log(this);
-        const dropdownContent = this.nextElementSibling;
-        console.log(dropdownContent);
-        dropdownContent.classList.toggle('show');
+        console.log('in render dd');
+        const dropdown = this.parentNode;
+        dropdown.appendChild(todoDropdown);
+        todoDropdown.classList.add('show');
     },
     hideDropdown() {
         console.log('in hide');
-        console.log(this);
-        let dropdown = document.querySelector('#todoDropdown');
-        if(dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
+        if(todoDropdown.classList.contains('show')) {
+            todoDropdown.classList.remove('show');
         }
     },
 }
