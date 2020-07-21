@@ -8,6 +8,7 @@ const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
 const notesPopup = document.querySelector('#notesPopupContainer');
 const closePopup = document.querySelector('#notesClosePopup');
+const projectDropdown = document.querySelector('#projectDropdown');
 
 function circle() {
     let circle = document.createElement('p');
@@ -80,13 +81,13 @@ const projectRender = {
         currentTodos.forEach(todo => todoRender.render(todo, todos));
     },
     renderDropdown() {
-        const dropdownContent = this.nextElementSibling;
-        dropdownContent.classList.toggle('show');
+        const dropdown = this.parentNode;
+        dropdown.appendChild(projectDropdown);
+        projectDropdown.classList.add('show');
     },
     hideDropdown() {
-        const dropdown = document.querySelector('#projectDropdown');
-        if(dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
+        if(projectDropdown.classList.contains('show')) {
+            projectDropdown.classList.remove('show');
         }
     }
 }

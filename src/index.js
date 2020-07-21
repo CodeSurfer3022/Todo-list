@@ -4,7 +4,8 @@ import {projectRender} from './projectDisplay';
 import addTodo from './todos';
 import addProject from './projects';
 import hideDropdowns from './windowEvents';
-import dropdownOptionsEventListeners from './todoDropdownOptions';
+import todoDropdownOptionsEventListeners from './todoDropdownOptions';
+import projectDropdownOptionsEventListeners from './projectDropdownOptions';
 
 // Create a default project 'home'
 let home = Project('Home');
@@ -26,9 +27,12 @@ console.log(todoList.getTodo('todo1'));
 home.addTodo(todo1);
 
 // Add event listeners to dropdown options of a to do
-dropdownOptionsEventListeners();
+todoDropdownOptionsEventListeners();
+
 // Render the default project
 projectRender.render(home);
+// Add event listeners to dropdown options of a project
+projectDropdownOptionsEventListeners();
 
 const projectElement = document.querySelector('.project')
 
