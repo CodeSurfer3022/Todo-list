@@ -1,6 +1,4 @@
 import {projectRender} from './projectDisplay';
-import {dropdownOptions} from './projectDropdownOptions';
-import optionHandler from './projectDropdownOptionsHandlers';
 
 function dropdown() {
     let dropdown = document.createElement('div');
@@ -8,8 +6,6 @@ function dropdown() {
 
     // The dropdown has options and dropdown content
     dropdown.appendChild(dropbtn())
-    dropdown.appendChild(dropdownContent());
-
     return dropdown;
 }
 
@@ -20,21 +16,6 @@ function dropbtn() {
     dropbtn.addEventListener('click', projectRender.renderDropdown);
 
     return dropbtn;
-}
-
-function dropdownContent() {
-    let dropdownContent = document.createElement('div');
-    dropdownContent.classList.add('dropdown-content');
-    dropdownContent.id = 'projectDropdown';
-
-    // The dropdown content has the project options
-    for(let option in dropdownOptions) {
-        const optionElement = dropdownOptions[option]();
-        dropdownContent.appendChild(optionElement);
-        optionElement.addEventListener('click', optionHandler);
-    }
-
-    return dropdownContent;
 }
 
 export default dropdown;

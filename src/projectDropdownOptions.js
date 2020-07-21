@@ -1,25 +1,12 @@
-const dropdownOptions = {
-    edit (){
-        let edit = document.createElement('p');
-        edit.classList.add('edit-project');
-        edit.textContent = 'Edit Project';
+import optionHandler from './projectDropdownOptionsHandlers';
 
-        return edit;
-    },
-    del (){
-        let del = document.createElement('p');
-        del.classList.add('delete-project');
-        del.textContent = 'Delete Project';
+const projectDropdown = document.querySelector('#projectDropdown');
 
-        return del;
-    },
-    notes (){
-        let notes = document.createElement('p');
-        notes.classList.add('project-notes');
-        notes.textContent = 'Add notes';
-
-        return notes;
+function projectDropdownOptionsEventListeners() {
+    console.log('in project oel');
+    for(let child of projectDropdown.children) {
+        child.addEventListener('click', optionHandler);
     }
 }
 
-export {dropdownOptions};
+export default projectDropdownOptionsEventListeners;
