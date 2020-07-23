@@ -39,14 +39,14 @@ main {
 }
 
 .collapsible:after {
-    content: '\25B8'; /* Unicode character for "plus" sign (+) */
+    content: '\25B8'; /* Unicode character for > sign */
     font-size: 13px;
     float: right;
     margin-left: 5px;
 }
 
 .active:after {
-    content: "\25B8"; /* Unicode character for "minus" sign (-) */
+    content: "\25B8"; /* Unicode character for  > sign rotated to downward arrow */
     transform: rotate(90deg);
 }
 
