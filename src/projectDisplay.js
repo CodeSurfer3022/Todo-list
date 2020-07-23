@@ -1,6 +1,7 @@
 import {todoRender} from './todoDisplay';
 import dropdown from './projectDropdown';
 import {projectListeners} from './projectEvents';
+import {projectList} from './project';
 
 const todos = document.querySelector('#todos');
 const projects = document.querySelector('#projects');
@@ -8,12 +9,15 @@ const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
 const notesPopup = document.querySelector('#notesPopupContainer');
 const closePopup = document.querySelector('#notesClosePopup');
+const projectDetailsPopup = document.querySelector('#projectPopupContainer');
+const projectClosePopup = document.querySelector('#projectClosePopup')
 const projectDropdown = document.querySelector('#projectDropdown');
 
 function circle() {
     let circle = document.createElement('p');
     circle.classList.add('project-circle');
     circle.textContent = 'o';
+    circle.addEventListener('click', projectRender.renderDetails);
 
     return circle;
 }
@@ -42,6 +46,33 @@ const projectRender = {
         div.appendChild(dropdown());
 
         content.appendChild(div);
+    },
+    renderDetails() {
+        console.log('in render details');
+        console.log(this);
+        const projectName = this.nextElementSibling.textContent;
+        const project = projectList.getProject(projectName);
+
+        projectDetailsPopup.classList.add('show');
+
+        const details = projectDetailsPopup.querySelector('#projectDetails');
+
+        const name = details.querySelector('h3');
+        name.textContent = project.getName();
+
+        const notes = details.querySelector('#projectNotes');
+        notes.textContent = project.getNotes();
+
+        const todosDiv = details.querySelector('#todosDiv');
+        const todos = project.getTodos();
+        for(let todo of todos) {
+            const p = document.createElement('p')
+            p.textContent = todo.getTitle();
+            todosDiv.appendChild(p);
+        }
+    },
+    hideDetails() {
+        projectDetailsPopup.classList.remove('show');
     },
     renderProjects() {
         let maxHeight = window.getComputedStyle(content).maxHeight;
@@ -93,6 +124,7 @@ const projectRender = {
 }
 
 closePopup.addEventListener('click', projectRender.hideNotesPopup);
+projectClosePopup.addEventListener('click', projectRender.hideDetails)
 collapse.addEventListener('click', projectRender.renderProjects);
 
 export {projectRender};
