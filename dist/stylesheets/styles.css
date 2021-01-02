@@ -1,15 +1,3 @@
-html {
-    height: 100vh;
-    width: 100vw;
-}
-
-body {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-rows: 1fr 8fr 1fr;
-}
-
 main {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -148,8 +136,8 @@ main {
 .popup{
     background-color: white;
     color: black;
-    height: 500px;
-    width: 500px;
+    height: 200px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
