@@ -1,7 +1,7 @@
 import dropdown from './todoDropdown';
 import {todoList} from './todo';
 
-const todos = document.querySelector('#todos');
+const todosContainer = document.querySelector('.todos-container');
 const notesPopup = document.querySelector('#notesPopupContainer');
 const checklistContainer = document.querySelector('#checklistPopupContainer');
 const checklistClosePopup = document.querySelector('#checklistClosePopup');
@@ -31,7 +31,7 @@ const todoRender = {
         const heading = document.createElement('h2');
         heading.classList.add('todo-heading');
         heading.textContent = name;
-        todos.appendChild(heading);
+        todosContainer.appendChild(heading);
     },
     renderAddTodo() {
         const div = document.createElement('div');
@@ -47,17 +47,17 @@ const todoRender = {
         p.textContent = 'Add todo';
         div.appendChild(p);
 
-        todos.appendChild(div);
+        todosContainer.appendChild(div);
     },
-    render(todo, todos) {
+    render(todo, todosContainer) {
         const activeProject = document.querySelector('.active-project');
         const projectName = activeProject.querySelector('.project-name').textContent;
 
         if(projectName !== todo.getProjectName()) return;
-        const addtodo = todos.querySelector('.add-todo');
+        const addtodo = todosContainer.querySelector('.add-todo');
         console.log('todo is rendering');
         console.log(todo);
-        console.log(todos);
+        console.log(todosContainer);
 
         // each project is a div with 3 items: circle, name and options
         let div = document.createElement('div');
@@ -67,7 +67,7 @@ const todoRender = {
         div.appendChild(title(todo.getTitle()));
         div.appendChild(dropdown());
 
-        todos.insertBefore(div, addtodo);
+        todosContainer.insertBefore(div, addtodo);
     },
     renderDetails() {
         console.log('in render details');

@@ -3,7 +3,7 @@ import dropdown from './projectDropdown';
 import {projectListeners} from './projectEvents';
 import {projectList} from './project';
 
-const todos = document.querySelector('#todos');
+const todosContainer = document.querySelector('.todos-container');
 const projects = document.querySelector('#projects');
 const collapse = projects.querySelector('.collapsible');
 const content = projects.querySelector('.content');
@@ -109,7 +109,7 @@ const projectRender = {
         todoRender.renderProjectHeading(project.getName());
         todoRender.renderAddTodo();
         let currentTodos = project.getTodos();
-        currentTodos.forEach(todo => todoRender.render(todo, todos));
+        currentTodos.forEach(todo => todoRender.render(todo, todosContainer));
     },
     renderDropdown() {
         const dropdown = this.parentNode;
