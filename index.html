@@ -6,34 +6,35 @@
         <link rel="icon" href="assets/images/icon.png" type="icon/ image type" >
         <link rel="stylesheet" href="stylesheets/styles.css" type="text/css">
         <link rel="stylesheet" href="stylesheets/reset.css" type="text/css">
+        <script src="https://kit.fontawesome.com/48509a2691.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <header>
             <h1>To do list</h1>
-            <p>More stuff coming up here, watch out!</p>
         </header>
         <main>
-            <div id="projects">
-                <div id="projects-heading">
-                    <p class="collapsible"></p>
-                    <h3>Projects</h3>
-                </div>
-                <div class="content">
+            <div class="container">
+                <div id="projects">
+                    <div class="projects-container">
+                        <div id="projects-heading">
+                            <i class="fas fa-chevron-right collapsible"></i>
+                            <p>Projects</p>
+                        </div>
+                        <div class="content">
 
+                        </div>
+                        <div class="add-project">
+                            <i class="fas fa-plus"></i>
+                            <p>Add Project</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="add-project">
-                    <p>+</p>
-                    <p>Add Project</p>
+                <div id="todos">
+                    <div class="todos-container">
+                    </div>
                 </div>
-            </div>
-            <div id="todos">
             </div>
         </main>
-        <footer>
-            <p>More features being added</p>
-            <p>Coming soon</p>
-            <p>Calendar integration, filter, labels and more...</p>
-        </footer>
         <div class='popup-container' id="notesPopupContainer">
             <div class='popup'>
                 <div class="close-popup" id="notesClosePopup">
