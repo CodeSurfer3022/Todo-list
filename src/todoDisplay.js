@@ -37,10 +37,9 @@ const todoRender = {
         const div = document.createElement('div');
         div.classList.add('add-todo');
 
-        const plus = document.createElement('p');
-        plus.classList.add('todo-plus');
-        plus.textContent = '+';
-        div.appendChild(plus);
+        const i = document.createElement('i');
+        i.className += 'todo-plus fas fa-plus';
+        div.appendChild(i);
 
         const p = document.createElement('p');
         p.classList.add('todo-text');
