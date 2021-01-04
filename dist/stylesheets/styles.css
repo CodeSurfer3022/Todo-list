@@ -5,6 +5,10 @@ body {
 header {
     padding: 10px;
     height: 50px;
+    background-color: #db4c3f;
+    font-family: Helvetica, serif;
+    color: white;
+    text-align: center;
 }
 
 .container {
@@ -15,16 +19,24 @@ header {
 
 #projects {
     flex: 1;
-    background-color: floralwhite;
+    background-color: whitesmoke;
 }
 
 #todos {
     flex: 3;
 }
 
+.todo {
+    color: white;
+}
+
 .projects-container, .todos-container {
     margin: 0 auto;
     width: 80%;
+}
+
+.todos-container h2 {
+    margin-bottom: 20px;
 }
 
 #projects div:hover{
@@ -33,10 +45,14 @@ header {
 
 i {
     margin-right: 10px;
+    transition: all 0.25s 0s;
+}
+
+.active {
+    transform: rotate(90deg);
 }
 
 #projects-heading{
-    background-color: aquamarine;
     display: flex;
     align-items: center;
     height: 40px;
@@ -55,7 +71,6 @@ i {
 
 
 .project {
-    background-color: lightcyan;
     height: 40px;
     display: flex;
     justify-content: space-around;
@@ -109,7 +124,9 @@ i {
 }
 
 .todo {
-    background-color: lightsalmon;
+    background-color: #e26565;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 2px lightsalmon;
     min-height: 40px;
     max-height: 100px;
     display: flex;
@@ -118,7 +135,7 @@ i {
 }
 
 .add-todo, .add-project {
-    background-color: #f54b4b;
+    color: #f54b4b;
     height: 50px;
     display: flex;
     align-items: center;
@@ -127,7 +144,6 @@ i {
 .add-project {
     display: flex;
     align-items: center;
-    background-color: aqua;
 }
 
 .todo-heading {
@@ -185,13 +201,6 @@ i {
 textarea {
     width: 300px;
     height: 200px;
-}
-
-header , footer {
-    background-color: #158dc4;
-    font-family: Helvetica, serif;
-    color: white;
-    text-align: center;
 }
 
 .show {
