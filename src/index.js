@@ -39,11 +39,6 @@ const projectElement = document.querySelector('.project')
 // Select the default project
 projectRender.selectProject(projectElement, home);
 
-// Click on add to do button to add a new to do
-const todosContainer = document.querySelector('.todos-container');
-const addtodo = document.querySelector('.add-todo');
-addtodo.addEventListener('click', addTodo.bind(this, todosContainer));
-
 const addproject = document.querySelector('.add-project');
 addproject.addEventListener('click', addProject);
 

@@ -1,5 +1,6 @@
 import dropdown from './todoDropdown';
 import {todoList} from './todo';
+import addTodo from "./todos";
 
 const todosContainer = document.querySelector('.todos-container');
 const notesPopup = document.querySelector('#notesPopupContainer');
@@ -10,9 +11,8 @@ const todoClosePopup = document.querySelector('#todoClosePopup');
 const todoDropdown = document.querySelector('#todoDropdown');
 
 function circle() {
-    let circle = document.createElement('p');
-    circle.classList.add('todo-circle');
-    circle.textContent = 'o';
+    let circle = document.createElement('i');
+    circle.className += 'todo-circle fas fa-info-circle';
     circle.addEventListener('click', todoRender.renderDetails);
     return circle;
 }
@@ -45,6 +45,8 @@ const todoRender = {
         p.classList.add('todo-text');
         p.textContent = 'Add todo';
         div.appendChild(p);
+
+        div.addEventListener('click', addTodo.bind(this, todosContainer));
 
         todosContainer.appendChild(div);
     },

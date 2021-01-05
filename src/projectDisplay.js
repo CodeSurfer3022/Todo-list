@@ -4,9 +4,9 @@ import {projectListeners} from './projectEvents';
 import {projectList} from './project';
 
 const todosContainer = document.querySelector('.todos-container');
-const projects = document.querySelector('#projects');
-const collapse = projects.querySelector('.collapsible');
-const content = projects.querySelector('.content');
+const projectsContainer = document.querySelector('.projects-container');
+const collapse = projectsContainer.querySelector('.collapsible');
+const content = projectsContainer.querySelector('.content');
 const notesPopup = document.querySelector('#notesPopupContainer');
 const closePopup = document.querySelector('#notesClosePopup');
 const projectDetailsPopup = document.querySelector('#projectPopupContainer');
@@ -14,9 +14,8 @@ const projectClosePopup = document.querySelector('#projectClosePopup')
 const projectDropdown = document.querySelector('#projectDropdown');
 
 function circle() {
-    let circle = document.createElement('p');
-    circle.classList.add('project-circle');
-    circle.textContent = 'o';
+    let circle = document.createElement('i');
+    circle.className += 'project-circle fas fa-info-circle';
     circle.addEventListener('click', projectRender.renderDetails);
 
     return circle;
@@ -95,17 +94,20 @@ const projectRender = {
         projectElement.parentNode.removeChild(projectElement);
     },
     updateProjectElement(projectElement, projectName) {
-        console.log(projectElement);
+        console.log('in update proj ele' + projectElement);
         projectElement.removeChild(projectElement.lastElementChild);
         console.log(projectName);
         projectElement.appendChild(circle());
         projectElement.appendChild(name(projectName));
         projectElement.appendChild(dropdown());
+        projectElement.addEventListener('click', () => projectListeners.select(projectElement, projectList.getProject(projectName)));
     },
     selectProject(projectElement, project) {
+        console.log('this is being called');
         if (projectElement.classList.contains('active-project')) return;
         projectElement.classList.add('active-project');
         console.log('todos of current project are rendering');
+        todosContainer.textContent = '';
         todoRender.renderProjectHeading(project.getName());
         todoRender.renderAddTodo();
         let currentTodos = project.getTodos();

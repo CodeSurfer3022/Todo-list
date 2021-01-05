@@ -1,7 +1,7 @@
 import forms from './projectForms';
 import {saveForm} from './projectEvents';
 
-const projects = document.querySelector('#projects');
+const projectsContainer = document.querySelector('.projects-container');
 
 function addProject() {
     const projectElement = document.createElement('div');
@@ -12,7 +12,7 @@ function addProject() {
     const save = editForm.querySelector('input[type="button"]');
     save.addEventListener('click', saveForm.add);
 
-    projects.insertBefore(projectElement, projects.lastElementChild);
+    projectsContainer.insertBefore(projectElement, projectsContainer.lastElementChild);
 }
 
 export default addProject;
