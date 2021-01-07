@@ -1,11 +1,11 @@
-import optionHandler from './projectDropdownOptionsHandlers';
+import optionHandler from "./projectDropdownOptionsHandlers";
 
-const projectDropdown = document.querySelector('#projectDropdown');
+const projectDropdown = document.querySelector("#projectDropdown");
 
 function projectDropdownOptionsEventListeners() {
-  console.log('in project oel');
+  console.log("in project oel");
   for (const child of projectDropdown.children) {
-    child.addEventListener('click', optionHandler);
+    child.addEventListener("click", optionHandler);
   }
 }
 

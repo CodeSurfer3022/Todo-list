@@ -1,27 +1,27 @@
-import {todoList, Todo} from './todo';
-import {projectList, Project} from './project';
-import {projectRender} from './projectDisplay';
-import addTodo from './todos';
-import addProject from './projects';
-import hideDropdowns from './windowEvents';
-import todoDropdownOptionsEventListeners from './todoDropdownOptions';
-import projectDropdownOptionsEventListeners from './projectDropdownOptions';
+import { todoList, Todo } from "./todo";
+import { projectList, Project } from "./project";
+import { projectRender } from "./projectDisplay";
+import addTodo from "./todos";
+import addProject from "./projects";
+import hideDropdowns from "./windowEvents";
+import todoDropdownOptionsEventListeners from "./todoDropdownOptions";
+import projectDropdownOptionsEventListeners from "./projectDropdownOptions";
 
 // Create a default project 'home'
-let home = Project('Home');
-home.addNotes('this is a default project');
+let home = Project("Home");
+home.addNotes("this is a default project");
 // console.log(home.getNotes());
 projectList.add(home);
 
 // Create a To do and add it to the todoList
 
-let todo1 = Todo('todo1', 'today', 'high');
-todo1.addNotes('this is notes');
-todo1.setPriority('low');
+let todo1 = Todo("todo1", "today", "high");
+todo1.addNotes("this is notes");
+todo1.setPriority("low");
 todoList.add(todo1);
 console.log(todo1.getPriority());
 console.log(todoList.getList());
-console.log(todoList.getTodo('todo1'));
+console.log(todoList.getTodo("todo1"));
 
 // Add the To do to its respective project
 home.addTodo(todo1);
@@ -34,13 +34,13 @@ projectRender.render(home);
 // Add event listeners to dropdown options of a project
 projectDropdownOptionsEventListeners();
 
-const projectElement = document.querySelector('.project')
+const projectElement = document.querySelector(".project");
 
 // Select the default project
 projectRender.selectProject(projectElement, home);
 
-const addproject = document.querySelector('.add-project');
-addproject.addEventListener('click', addProject);
+const addproject = document.querySelector(".add-project");
+addproject.addEventListener("click", addProject);
 
 //
 //

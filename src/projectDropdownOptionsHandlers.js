@@ -1,15 +1,15 @@
-import { projectRender } from './projectDisplay';
-import { projectList } from './project';
-import forms from './projectForms';
-import { saveForm } from './projectEvents';
+import { projectRender } from "./projectDisplay";
+import { projectList } from "./project";
+import forms from "./projectForms";
+import { saveForm } from "./projectEvents";
 
 function optionHandler() {
   const projectElement = this.parentNode.parentNode.parentNode;
-  const projectName = projectElement.querySelector('h3').textContent;
+  const projectName = projectElement.querySelector("h3").textContent;
   const project = projectList.getProject(projectName);
 
   switch (this.textContent) {
-    case 'Edit Project':
+    case "Edit Project":
       // console.log('edit');
       // console.log(project);
       console.log(projectElement.children);
@@ -20,22 +20,25 @@ function optionHandler() {
       projectElement.appendChild(editForm);
 
       const save = editForm.querySelector('input[type="button"]');
-      save.addEventListener('click', saveForm.update.bind(this, project, projectElement));
+      save.addEventListener(
+        "click",
+        saveForm.update.bind(this, project, projectElement)
+      );
 
       break;
-    case 'Delete Project':
-      console.log('delete');
+    case "Delete Project":
+      console.log("delete");
       projectRender.removeProjectElement(projectElement);
       projectList.remove(project.getName());
       console.log(projectList.getList());
       break;
-    case 'Add notes':
-      console.log('add Notes');
+    case "Add notes":
+      console.log("add Notes");
       projectRender.renderNotesPopup();
 
-      const popup = document.querySelector('.popup');
+      const popup = document.querySelector(".popup");
       const addNotes = popup.querySelector('input[type="button"]');
-      addNotes.addEventListener('click', saveForm.addNotes.bind(this, project));
+      addNotes.addEventListener("click", saveForm.addNotes.bind(this, project));
       break;
 
     default:

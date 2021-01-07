@@ -1,10 +1,10 @@
-import formFields from './todoFormFields';
+import formFields from "./todoFormFields";
 
 const forms = {
   editForm: (() => {
-    const form = document.createElement('form');
-    form.name = 'todoEditForm';
-    const br = document.createElement('br');
+    const form = document.createElement("form");
+    form.name = "todoEditForm";
+    const br = document.createElement("br");
 
     formFields.title(form);
     form.appendChild(br);
@@ -22,9 +22,9 @@ const forms = {
     return form;
   })(),
   projectForm: (() => {
-    const form = document.createElement('form');
-    form.name = 'todoProjectNameForm';
-    const br = document.createElement('br');
+    const form = document.createElement("form");
+    form.name = "todoProjectNameForm";
+    const br = document.createElement("br");
 
     formFields.project(form);
     form.appendChild(br);
@@ -35,9 +35,9 @@ const forms = {
     return form;
   })(),
   duedateForm: (() => {
-    const form = document.createElement('form');
-    form.name = 'todoDuedateForm';
-    const br = document.createElement('br');
+    const form = document.createElement("form");
+    form.name = "todoDuedateForm";
+    const br = document.createElement("br");
 
     formFields.dueDate(form);
     form.appendChild(br);
@@ -48,9 +48,9 @@ const forms = {
     return form;
   })(),
   priorityForm: (() => {
-    const form = document.createElement('form');
-    form.name = 'todoPriorityForm';
-    const br = document.createElement('br');
+    const form = document.createElement("form");
+    form.name = "todoPriorityForm";
+    const br = document.createElement("br");
 
     formFields.priority(form);
     form.appendChild(br);

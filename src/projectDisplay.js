@@ -1,29 +1,29 @@
-import { todoRender } from './todoDisplay';
-import dropdown from './projectDropdown';
-import { projectListeners } from './projectEvents';
-import { projectList } from './project';
+import { todoRender } from "./todoDisplay";
+import dropdown from "./projectDropdown";
+import { projectListeners } from "./projectEvents";
+import { projectList } from "./project";
 
-const todosContainer = document.querySelector('.todos-container');
-const projectsContainer = document.querySelector('.projects-container');
-const collapse = projectsContainer.querySelector('.collapsible');
-const content = projectsContainer.querySelector('.content');
-const notesPopup = document.querySelector('#notesPopupContainer');
-const closePopup = document.querySelector('#notesClosePopup');
-const projectDetailsPopup = document.querySelector('#projectPopupContainer');
-const projectClosePopup = document.querySelector('#projectClosePopup');
-const projectDropdown = document.querySelector('#projectDropdown');
+const todosContainer = document.querySelector(".todos-container");
+const projectsContainer = document.querySelector(".projects-container");
+const collapse = projectsContainer.querySelector(".collapsible");
+const content = projectsContainer.querySelector(".content");
+const notesPopup = document.querySelector("#notesPopupContainer");
+const closePopup = document.querySelector("#notesClosePopup");
+const projectDetailsPopup = document.querySelector("#projectPopupContainer");
+const projectClosePopup = document.querySelector("#projectClosePopup");
+const projectDropdown = document.querySelector("#projectDropdown");
 
 function circle() {
-  const circle = document.createElement('i');
-  circle.className += 'project-circle fas fa-info-circle';
-  circle.addEventListener('click', projectRender.renderDetails);
+  const circle = document.createElement("i");
+  circle.className += "project-circle fas fa-info-circle";
+  circle.addEventListener("click", projectRender.renderDetails);
 
   return circle;
 }
 
 function name(name_) {
-  const name = document.createElement('h3');
-  name.classList.add('project-name');
+  const name = document.createElement("h3");
+  name.classList.add("project-name");
   console.log(name_);
   name.textContent = name_;
 
@@ -32,12 +32,12 @@ function name(name_) {
 
 const projectRender = {
   render(project) {
-    console.log('project is rendering');
+    console.log("project is rendering");
     console.log(project);
 
     // each project is a div with 3 items: circle, name and dropdown
-    const div = document.createElement('div');
-    div.classList.add('project');
+    const div = document.createElement("div");
+    div.classList.add("project");
     projectListeners.select(div, project);
 
     div.appendChild(circle());
@@ -47,36 +47,36 @@ const projectRender = {
     content.appendChild(div);
   },
   renderDetails() {
-    console.log('in render details');
+    console.log("in render details");
     console.log(this);
     const projectName = this.nextElementSibling.textContent;
     const project = projectList.getProject(projectName);
 
-    projectDetailsPopup.classList.add('show');
+    projectDetailsPopup.classList.add("show");
 
-    const details = projectDetailsPopup.querySelector('#projectDetails');
+    const details = projectDetailsPopup.querySelector("#projectDetails");
 
-    const name = details.querySelector('h3');
+    const name = details.querySelector("h3");
     name.textContent = project.getName();
 
-    const notes = details.querySelector('#projectNotes');
+    const notes = details.querySelector("#projectNotes");
     notes.textContent = project.getNotes();
 
-    const todosDiv = details.querySelector('#todosDiv');
+    const todosDiv = details.querySelector("#todosDiv");
     const todos = project.getTodos();
     for (const todo of todos) {
-      const p = document.createElement('p');
+      const p = document.createElement("p");
       p.textContent = todo.getTitle();
       todosDiv.appendChild(p);
     }
   },
   hideDetails() {
-    projectDetailsPopup.classList.remove('show');
+    projectDetailsPopup.classList.remove("show");
   },
   renderProjects() {
     const { maxHeight } = window.getComputedStyle(content);
-    this.classList.toggle('active');
-    if (maxHeight === '0px') {
+    this.classList.toggle("active");
+    if (maxHeight === "0px") {
       console.log(maxHeight);
       content.style.maxHeight = `${content.scrollHeight}px`;
     } else {
@@ -85,10 +85,10 @@ const projectRender = {
   },
   renderNotesPopup() {
     console.log(notesPopup);
-    notesPopup.classList.toggle('show');
+    notesPopup.classList.toggle("show");
   },
   hideNotesPopup() {
-    notesPopup.classList.toggle('show');
+    notesPopup.classList.toggle("show");
   },
   removeProjectElement(projectElement) {
     projectElement.parentNode.removeChild(projectElement);
@@ -100,14 +100,19 @@ const projectRender = {
     projectElement.appendChild(circle());
     projectElement.appendChild(name(projectName));
     projectElement.appendChild(dropdown());
-    projectElement.addEventListener('click', () => projectListeners.select(projectElement, projectList.getProject(projectName)));
+    projectElement.addEventListener("click", () =>
+      projectListeners.select(
+        projectElement,
+        projectList.getProject(projectName)
+      )
+    );
   },
   selectProject(projectElement, project) {
-    console.log('this is being called');
-    if (projectElement.classList.contains('active-project')) return;
-    projectElement.classList.add('active-project');
-    console.log('todos of current project are rendering');
-    todosContainer.textContent = '';
+    console.log("this is being called");
+    if (projectElement.classList.contains("active-project")) return;
+    projectElement.classList.add("active-project");
+    console.log("todos of current project are rendering");
+    todosContainer.textContent = "";
     todoRender.renderProjectHeading(project.getName());
     todoRender.renderAddTodo();
     const currentTodos = project.getTodos();
@@ -116,17 +121,17 @@ const projectRender = {
   renderDropdown() {
     const dropdown = this.parentNode;
     dropdown.appendChild(projectDropdown);
-    projectDropdown.classList.add('show');
+    projectDropdown.classList.add("show");
   },
   hideDropdown() {
-    if (projectDropdown.classList.contains('show')) {
-      projectDropdown.classList.remove('show');
+    if (projectDropdown.classList.contains("show")) {
+      projectDropdown.classList.remove("show");
     }
   },
 };
 
-closePopup.addEventListener('click', projectRender.hideNotesPopup);
-projectClosePopup.addEventListener('click', projectRender.hideDetails);
-collapse.addEventListener('click', projectRender.renderProjects);
+closePopup.addEventListener("click", projectRender.hideNotesPopup);
+projectClosePopup.addEventListener("click", projectRender.hideDetails);
+collapse.addEventListener("click", projectRender.renderProjects);
 
 export { projectRender };

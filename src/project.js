@@ -1,4 +1,4 @@
-import { todoList } from './todo';
+import { todoList } from "./todo";
 
 const projectList = (function () {
   const projects = [];
@@ -28,9 +28,12 @@ const projectList = (function () {
   }
 
   return {
-    add, remove, getProject, getList,
+    add,
+    remove,
+    getProject,
+    getList,
   };
-}());
+})();
 
 const Project = function (name_) {
   let name = name_;
@@ -68,7 +71,13 @@ const Project = function (name_) {
   }
 
   return {
-    edit, addNotes, addTodo, getName, getNotes, getTodos, getProject,
+    edit,
+    addNotes,
+    addTodo,
+    getName,
+    getNotes,
+    getTodos,
+    getProject,
   };
 };
 

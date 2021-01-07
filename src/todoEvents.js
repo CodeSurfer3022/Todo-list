@@ -1,10 +1,10 @@
-import { Todo, todoList } from './todo';
-import { todoRender } from './todoDisplay';
-import { projectList } from './project';
+import { Todo, todoList } from "./todo";
+import { todoRender } from "./todoDisplay";
+import { projectList } from "./project";
 
 const saveForm = {
   add(todos, todoElement) {
-    console.log('add');
+    console.log("add");
     console.log(this, todos);
     const todoForm = document.todoEditForm;
     const title = todoForm.title.value;
@@ -17,8 +17,9 @@ const saveForm = {
     todoList.add(todo);
 
     // if the to do is a subtask, add it to the current to do's checklist
-    if (todos.matches('.checklist')) {
-      const currentTodoTitle = document.querySelector('#task-title').textContent;
+    if (todos.matches(".checklist")) {
+      const currentTodoTitle = document.querySelector("#task-title")
+        .textContent;
       const currentTodo = todoList.getTodo(currentTodoTitle);
       console.log(currentTodo);
       currentTodo.addToChecklist(todo);
@@ -48,7 +49,7 @@ const saveForm = {
     todoRender.updateTodoElement(todoElement, title);
   },
   addNotes(todo) {
-    console.log('saving notes');
+    console.log("saving notes");
     const notes = document.popupForm.notes.value;
     console.log(notes);
     todo.addNotes(notes);
@@ -57,7 +58,7 @@ const saveForm = {
     list.forEach((project) => console.log(project.getNotes()));
   },
   moveToProject(todo, todoElement, form) {
-    console.log('in move');
+    console.log("in move");
     const projectName = form.projectName.value;
 
     if (projectName !== todo.getProjectName()) {
@@ -101,7 +102,6 @@ const saveForm = {
 
     todoRender.hideDropdown();
   },
-
 };
 
 export { saveForm };

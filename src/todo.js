@@ -1,4 +1,4 @@
-import { projectList } from './project';
+import { projectList } from "./project";
 
 const todoList = (function () {
   const todos = [];
@@ -20,11 +20,14 @@ const todoList = (function () {
   }
 
   return {
-    add, remove, getTodo, getList,
+    add,
+    remove,
+    getTodo,
+    getList,
   };
-}());
+})();
 
-function Todo(title_, dueDate_, priority_, projectName_ = 'Home') {
+function Todo(title_, dueDate_, priority_, projectName_ = "Home") {
   let title = title_;
   let dueDate = dueDate_;
   let priority = priority_;
@@ -50,7 +53,9 @@ function Todo(title_, dueDate_, priority_, projectName_ = 'Home') {
 
     const currentProject = projectList.getProject(projectName);
     console.log(currentProject.getTodos());
-    const index = currentProject.getTodos().findIndex((todo) => todo.getTitle() === title);
+    const index = currentProject
+      .getTodos()
+      .findIndex((todo) => todo.getTitle() === title);
     console.log(index);
     currentProject.getTodos().splice(index, 1);
 
@@ -85,7 +90,9 @@ function Todo(title_, dueDate_, priority_, projectName_ = 'Home') {
       completed = true;
       console.log(`marked ${this} as completed`);
     } else {
-      console.log('please complete all todos in checklist before marking the todo as complete');
+      console.log(
+        "please complete all todos in checklist before marking the todo as complete"
+      );
     }
   }
 
@@ -119,7 +126,13 @@ function Todo(title_, dueDate_, priority_, projectName_ = 'Home') {
   // only use this function for quick debugging
   function getTodo() {
     return {
-      title, notes, dueDate, priority, projectName, checkList, completed,
+      title,
+      notes,
+      dueDate,
+      priority,
+      projectName,
+      checkList,
+      completed,
     };
   }
 

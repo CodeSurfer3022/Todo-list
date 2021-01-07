@@ -1,17 +1,20 @@
-import { projectRender } from './projectDisplay';
-import { Project, projectList } from './project';
+import { projectRender } from "./projectDisplay";
+import { Project, projectList } from "./project";
 
-const content = document.querySelector('.content');
+const content = document.querySelector(".content");
 
 const projectListeners = {
   select(projectElement, project) {
     console.log(projectElement, project);
-    projectElement.addEventListener('click', projectRender.selectProject.bind(this, projectElement, project));
+    projectElement.addEventListener(
+      "click",
+      projectRender.selectProject.bind(this, projectElement, project)
+    );
   },
 };
 const saveForm = {
   add() {
-    console.log('add project');
+    console.log("add project");
     const projectElement = this.parentNode.parentNode;
     const projectForm = document.editProjectForm;
     const name = projectForm.projectName.value;
@@ -30,7 +33,7 @@ const saveForm = {
     projectRender.updateProjectElement(projectElement, projectName);
   },
   addNotes(project) {
-    console.log('saving notes');
+    console.log("saving notes");
     const notes = document.popupForm.notes.value;
     // console.log(notes);
     project.addNotes(notes);

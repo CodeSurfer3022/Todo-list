@@ -1,12 +1,12 @@
-import { todoRender } from './todoDisplay';
-import addTodo from './todos';
+import { todoRender } from "./todoDisplay";
+import addTodo from "./todos";
 
-const checklistContainer = document.querySelector('.checklistContainer');
-const projectName = checklistContainer.querySelector('#project-name');
-const taskTitle = checklistContainer.querySelector('#task-title');
+const checklistContainer = document.querySelector(".checklistContainer");
+const projectName = checklistContainer.querySelector("#project-name");
+const taskTitle = checklistContainer.querySelector("#task-title");
 
-const checklistDiv = checklistContainer.querySelector('.checklist');
-const addSubtask = checklistDiv.querySelector('.add-todo');
+const checklistDiv = checklistContainer.querySelector(".checklist");
+const addSubtask = checklistDiv.querySelector(".add-todo");
 
 function renderProjectName(name) {
   console.log(name);
@@ -31,7 +31,7 @@ const checklistRender = {
     renderProjectName(name);
     renderTaskTitle(title);
     renderCurrentChecklist(checklist);
-    addSubtask.addEventListener('click', addTodo.bind(this, checklistDiv));
+    addSubtask.addEventListener("click", addTodo.bind(this, checklistDiv));
   },
 };
 
